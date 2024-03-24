@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NullContextError } from '@/hooks/errors/null-context-error';
+import { NullContextError } from '../../hooks/errors/null-context-error';
 import type { NamedContext } from '../types/named-context';
 
 /**

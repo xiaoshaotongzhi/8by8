@@ -7,7 +7,7 @@ export interface User {
   email: string;
   name: string;
   avatar: Avatar;
-  userType: UserType;
+  type: UserType;
   completedActions: {
     electionReminders: boolean;
     registerToVote: boolean;

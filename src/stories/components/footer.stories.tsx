@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Footer } from '../../../components/footer';
-import { PageContainer } from '../../../components/utils/page-container';
-import { GlobalStylesProvider } from '../../global-styles-provider';
+import { Footer } from '../../components/footer';
+import { PageContainer } from '../../components/utils/page-container';
+import { GlobalStylesProvider } from '../global-styles-provider';
 
 const meta: Meta<typeof Footer> = {
   component: Footer,

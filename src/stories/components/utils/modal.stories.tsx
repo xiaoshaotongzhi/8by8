@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { Modal } from '../../../../components/utils/modal';
-import { GlobalStylesProvider } from '../../../global-styles-provider';
+import { Modal } from '../../../components/utils/modal';
+import { GlobalStylesProvider } from '../../global-styles-provider';
 
 const meta: Meta<typeof Modal> = {
   component: Modal,
