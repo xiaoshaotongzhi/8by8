@@ -1,3 +1,6 @@
+/**
+ * An error thrown when useContextSafely is called outside of a context provider.
+ */
 export class NullContextError extends Error {
   public readonly name = 'NullContextError';
   public readonly message: string;
@@ -8,6 +11,6 @@ export class NullContextError extends Error {
   }
 
   private static getMessage(contextName: string, consumerName: string) {
-    return `${consumerName} cannot read properties of null ${contextName}. ${consumerName} must be a child of ${contextName}.Provider.`;
+    return `${consumerName} could not read properties of null ${contextName}. ${consumerName} must be a child of ${contextName}.Provider.`;
   }
 }

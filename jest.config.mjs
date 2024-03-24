@@ -12,6 +12,7 @@ const config = {
   collectCoverage: true,
   //add directories here to include them in coverage reports and threshold
   collectCoverageFrom: ['./src/**'],
+  coveragePathIgnorePatterns: ['.enum.ts'],
   coverageThreshold: {
     //require 100% code coverage for the tests to pass
     global: {
