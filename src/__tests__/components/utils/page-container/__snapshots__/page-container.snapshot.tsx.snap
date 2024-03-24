@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContainer renders the PageContainer unchanged. 1`] = `
+<div>
+  <div
+    class="outer_container"
+  >
+    <div
+      class="inner_container"
+    />
+  </div>
+</div>
+`;

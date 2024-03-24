@@ -1,0 +1,30 @@
+@use '../../../../styles/partials';
+
+.standalone_greeting {
+  margin-top: 62px;
+  margin-left: 30px;
+  text-transform: uppercase;
+}
+
+.avatar_greeting {
+  margin-top: 43px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+
+  .blob {
+    width: 80px;
+    height: 80px;
+    background-image: url('../../../../../public/static/images/components/header/user-avatar-blob.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .avatar {
+    width: 40px;
+    height: auto;
+  }
+}

@@ -1,0 +1,6 @@
+@use '../link-utils';
+
+.link_lg_top {
+  @include link-utils.link-lg();
+  margin-top: 38px;
+}
