@@ -1,11 +1,9 @@
-import { UserType } from '../enums/user-type.enum';
-import type { Avatar } from '../types/avatar.type';
-import type { BadgeDoc } from '../types/badge-doc.type';
+import { UserType } from '../enums/user-type';
+import type { Avatar } from './avatar.type';
+import type { Badge } from './badge';
 
-/**
- * Represents a document in the users collection of the Firestore database.
- */
-export interface UserDoc {
+export interface User {
+  uid: string;
   email: string;
   name: string;
   avatar: Avatar;
@@ -15,7 +13,7 @@ export interface UserDoc {
     registerToVote: boolean;
     sharedChallenge: boolean;
   };
-  badges: BadgeDoc[];
+  badges: Badge[];
   challengeEndDate: string;
   completedChallenge: boolean;
   redeemedAward: boolean;
@@ -27,7 +25,7 @@ export interface UserDoc {
    * @remarks
    * The uid field will be used to award the challenger a badge when the
    * player completes an action. The name and avatar fields are
-   * used to display the name and avater of the challenger within the UI
+   * used to display the name and avatar of the challenger within the UI
    * for the player once the player has completed an action towards the
    * challenger's challenge.
    */

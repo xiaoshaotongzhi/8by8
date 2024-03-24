@@ -1,6 +1,5 @@
-export enum BadgeType {
+export enum Actions {
   ElectionReminders = 'electionReminders',
   VoterRegistration = 'voterRegistration',
   SharedChallenge = 'sharedChallenge',
-  InvitedPlayerAction = 'invitedPlayerAction',
 }

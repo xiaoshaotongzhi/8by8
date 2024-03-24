@@ -1,7 +1,7 @@
 import { NullContextError } from '@/hooks/errors/null-context-error';
 import { createNamedContext } from '@/hooks/functions/create-named-context';
 import { useContextSafely } from '@/hooks/functions/use-context-safely';
-import { getErrorThrownByComponent } from '@/test-utils/components/get-error-thrown-by-component';
+import { getErrorThrownByComponent } from '@/testing-utils/get-error-thrown-by-component';
 
 describe('useContextSafely', () => {
   const TestContext = createNamedContext<string>('TestContext');
