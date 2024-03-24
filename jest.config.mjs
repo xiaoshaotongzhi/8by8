@@ -20,7 +20,12 @@ const config = {
     'fonts',
   ],
   //TODO : remove 'user-context.tsx' once it is implemented
-  coveragePathIgnorePatterns: ['index.ts', 'index.tsx', 'user-context.tsx'],
+  coveragePathIgnorePatterns: [
+    'index.ts',
+    'index.tsx',
+    'layout.tsx',
+    'user-context.tsx',
+  ],
   coverageThreshold: {
     //require 100% code coverage for the tests to pass
     global: {

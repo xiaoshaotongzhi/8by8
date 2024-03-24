@@ -20,5 +20,8 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
+  babel: {
+    presets: ['next/babel'],
+  },
 };
 export default config;

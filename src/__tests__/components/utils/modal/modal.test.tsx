@@ -9,13 +9,10 @@ import {
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { Modal } from '@/components/utils/modal';
+import { mockDialogMethods } from '@/testing-utils/mock-dialog-methods';
 
 describe('Modal', () => {
-  //add showModal and close to HTMLDialogElement.prototype as they are not recognized
-  //as properties of this type of element by the testing framework
-  HTMLDialogElement.prototype.showModal = () => {};
-  HTMLDialogElement.prototype.close = () => {};
-
+  mockDialogMethods();
   afterEach(cleanup);
 
   it('renders a child component', () => {

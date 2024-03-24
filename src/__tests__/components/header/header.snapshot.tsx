@@ -1,12 +1,10 @@
 import { render, cleanup } from '@testing-library/react';
 import { Header } from '@/components/header';
 import { UserContext } from '@/contexts/user-context';
+import { mockDialogMethods } from '@/testing-utils/mock-dialog-methods';
 
 describe('Header', () => {
-  //add showModal and close to HTMLDialogElement.prototype as they are not recognized
-  //as properties of this type of element by the testing framework
-  HTMLDialogElement.prototype.showModal = () => {};
-  HTMLDialogElement.prototype.close = () => {};
+  mockDialogMethods();
   afterEach(cleanup);
 
   it('renders the header unchanged', () => {

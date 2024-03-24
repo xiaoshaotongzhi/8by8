@@ -1,3 +1,4 @@
+'use client';
 import { PropsWithChildren } from 'react';
 import { createNamedContext } from '../hooks/functions/create-named-context';
 import type { User } from '../model/types/user';
