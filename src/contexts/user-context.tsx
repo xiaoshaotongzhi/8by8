@@ -32,7 +32,7 @@ function UserContextProvider({ children }: PropsWithChildren) {
     const subscription = userService.subscribe((user: User | null) =>
       setUser(user),
     );
-    return () => subscription.unsubscribe();
+    return subscription.unsubscribe;
   });
 
   return (
