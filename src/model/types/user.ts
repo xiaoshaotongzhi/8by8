@@ -1,6 +1,7 @@
 import { UserType } from '../enums/user-type';
 import type { Avatar } from './avatar.type';
 import type { Badge } from './badge';
+import type { Challenger } from './challenger.type';
 
 export interface User {
   uid: string;
@@ -18,30 +19,21 @@ export interface User {
   completedChallenge: boolean;
   redeemedAward: boolean;
   /**
-   * If the user is a player (a user of type UserType.Player or
-   * UserType.Hybrid), this object contains information about the challenger
-   * that referred them.
+   * An array of the challengers whose challenges a player has contributed to
+   * by taking an action.
    *
    * @remarks
-   * The uid field will be used to award the challenger a badge when the
-   * player completes an action. The name and avatar fields are
-   * used to display the name and avatar of the challenger within the UI
-   * for the player once the player has completed an action towards the
-   * challenger's challenge.
+   * The names and avatars of these challengers are displayed on
+   * the /actions page once the player has completed all possible actions.
    */
-  invitedBy?: {
-    uid: string;
-    name: string;
-    avatar: Avatar;
-  };
+  contributedTo: Challenger[];
   /**
-   * Represents whether a player (a user of type UserType.Player or
-   * UserType.Hybrid) has taken an action on behalf of a challenger.
+   * The most recent challenger to invite the player.
    *
    * @remarks
-   * Each player may only take one action on behalf of one challenger. If this
-   * field is `true`, any subsequent actions taken by the user will not award
-   * that challenger a badge.
+   * Each time the challenger clicks a new challenger's share link, this will be
+   * updated.
    */
-  completedActionForChallenger: boolean;
+  invitedBy?: Challenger;
+  shareCode: string;
 }

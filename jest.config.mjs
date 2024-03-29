@@ -19,15 +19,20 @@ const config = {
     './src/stories',
     'fonts',
   ],
-  //TODO : remove 'user-context.tsx' once it is implemented
+  /*
+    TODO : remove 'local-user-service.ts' once it is implemented. Then, tests
+    can be added for 'user-context.tsx' and it can be removed from this array
+    as well.
+  */
   coveragePathIgnorePatterns: [
     'index.ts',
     'index.tsx',
     'layout.tsx',
+    'local-user-service.ts',
     'user-context.tsx',
   ],
+  //require 100% code coverage for the tests to pass
   coverageThreshold: {
-    //require 100% code coverage for the tests to pass
     global: {
       branches: 100,
       functions: 100,
