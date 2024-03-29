@@ -20,7 +20,7 @@ const config = {
     'fonts',
   ],
   /*
-    TODO : remove 'mock-user-service.ts' once it is implemented. Then, tests
+    TODO : remove 'local-user-service.ts' once it is implemented. Then, tests
     can be added for 'user-context.tsx' and it can be removed from this array
     as well.
   */
@@ -28,7 +28,7 @@ const config = {
     'index.ts',
     'index.tsx',
     'layout.tsx',
-    'mock-user-service.ts',
+    'local-user-service.ts',
     'user-context.tsx',
   ],
   //require 100% code coverage for the tests to pass
