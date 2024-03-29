@@ -15,6 +15,8 @@ Additionally, we will be using the following languages/frameworks/libraries, whi
 - [TypeScript](https://www.typescriptlang.org/)
 - [Firebase](https://firebase.google.com/)
 - [Sass](https://sass-lang.com/)
+- [Inversify](https://inversify.io/) - For dependency injection.
+- [Luxon](https://github.com/moment/luxon/) - For manipulating dates.
 
 Finally, please take some time to familiarize yourself with the different user stories depicted in the Figma.
 
