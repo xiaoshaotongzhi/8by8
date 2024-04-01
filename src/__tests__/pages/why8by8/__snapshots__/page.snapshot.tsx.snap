@@ -1,0 +1,408 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Why8by8 renders why8by8 page unchanged 1`] = `
+<div>
+  <div
+    class="outer_container"
+  >
+    <div
+      class="inner_container"
+    >
+      <div
+        class="why8by8"
+      >
+        <div
+          class="whyHero"
+        >
+          <div
+            class="padding"
+          >
+            <h1
+              class="underline"
+            >
+              Why 8by8
+            </h1>
+            <q>
+              AAPI hate crimes have shot through the roof during the pandemic, yet there's limited media coverage. 8by8 gives me the opportunity to use my skills to advance political and social equality for the AAPI community and help increase voter turnout. The AAPI community deserves a future where we're treated the same and our culture is respected.
+            </q>
+            <aside>
+              <span>
+                —Arnab, High School Student
+              </span>
+              <img
+                alt="Arnab"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </aside>
+          </div>
+          <div
+            class="custom_shape_divider_top_1659139317"
+          >
+            <svg
+              data-name="Layer 1"
+              preserveAspectRatio="none"
+              viewBox="0 0 1200 120"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="shape_fill"
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="tealStats"
+        >
+          <h1
+            class="bold_shadow"
+          >
+            20%
+          </h1>
+          <h3>
+            of Asian Americans and Pacific Islanders have experienced a hate incident in 2021.
+          </h3>
+        </div>
+        <div
+          class="whiteMidsection"
+        >
+          <img
+            alt="Teal Curve"
+            class="tealCurve"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <q>
+            It is was heart-breaking to know that the AAPI community, including my Indonesian friends, is still subjected to racism and discrimination. I was greatly encouraged to join 8by8 to contribute to the AAPI community and call out issues with the government and our society. I hope to do this not only in the US, but also everywhere across the world!
+          </q>
+          <aside>
+            <span>
+              —Agustina, College Student
+            </span>
+            <img
+              alt="Agustina"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </aside>
+          <img
+            alt="Blur Divider"
+            class="blur_divider"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <h1>
+             Types of Hate Crimes Against AAPI
+          </h1>
+          <div
+            class="chart"
+          >
+            <img
+              alt="Pie Chart"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+          <h3>
+            <b>
+              11% of these are considered civil rights violations
+            </b>
+            , where the AAPI community members were barred from transportation, faced discrimination from housing or in the workplace, etc.
+            <img
+              alt="Blur Blob"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </h3>
+          <div
+            class="lastStat"
+          >
+            <h3>
+              AAPI Hate Incidents reported by 
+              <br />
+              <u>
+                women
+              </u>
+               make up
+              <br />
+              <span
+                class="bold_shadow"
+              >
+                 62% 
+              </span>
+              <br />
+              Of All Reports
+            </h3>
+            <img
+              alt="Blur Blob"
+              class="blurBlob"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+        <div
+          class="finalTealStats"
+        >
+          <img
+            alt="Teal Top"
+            class="top_curve"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <h2>
+            Asians Have Historically Low Election Turnout
+          </h2>
+          <h1
+            class="bold_shadow"
+          >
+            Below 60%
+          </h1>
+          <div
+            class="stat"
+          >
+            <h3>
+               
+              Asian-Americans Make Up
+              <br />
+              <span
+                class="bold_shadow"
+              >
+                7%
+              </span>
+              <br />
+              Of the Population
+            </h3>
+          </div>
+          <div
+            class="stat"
+          >
+            <h3>
+               
+              But Only
+              <br />
+              <span
+                class="bold_shadow"
+              >
+                3%
+              </span>
+              <br />
+              Of Congress is Asian or AAPI
+            </h3>
+          </div>
+          <img
+            alt="Teal Wave"
+            class="leftSpread"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent; transform: translateY(00%);"
+            width="40"
+          />
+        </div>
+        <div
+          class="closingQuotes"
+        >
+          <q>
+            The protagonists of my favorite Asian anime shows (DBZ, My Hero Academia, and Naruto) have taught me to always help those in danger. After hearing about the hate crimes from the news and from my AAPI peers, I wanted to help but didn't know how. Luckily I found 8by8, and I resonated with their goal to protect AAPI rights through voter registration.
+          </q>
+          <aside>
+            <span>
+              —Luis, College Student
+            </span>
+            <img
+              alt="Luis"
+              class="img1"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </aside>
+          <div
+            class="quote_gap"
+          />
+          <q>
+            I joined the 8by8 partnerships team hoping to leverage my network and make a difference to the future of AAPI in America. Voter registration is a great starting point. My dream is to build a chain of modern and inclusive community centers for Asian Americans. With more civic engagement and political presence, the journey for modern Asian Community Centers can be easier and smoother!
+          </q>
+          <aside>
+            <span
+              class="quote_gap_2"
+            >
+              —Yudy, Partnership Lead at 8BY8
+            </span>
+            <img
+              alt="Yudy"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </aside>
+          <div
+            class="chefusQuote"
+          >
+            <img
+              alt="Teal Bottom"
+              class="tealBottom"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <q>
+              Folks at 8by8 are professional and dedicated to fight for Asian rights. Thank you so much for your hard work and keep thriving!
+            </q>
+            <aside>
+              <span>
+                —Xintao She, Chefus CEO
+              </span>
+              <div
+                class="logo"
+              />
+            </aside>
+            <img
+              alt="Teal Top"
+              class="tealTop"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </div>
+        </div>
+        <div
+          class="pseudoFooter"
+        >
+          <h4>
+            Did you know?
+          </h4>
+          <h3>
+            A swing of just
+            <span
+              class="bold_shadow"
+            >
+              21,459 
+              <br />
+               Votes
+            </span>
+            Would have 
+            <u>
+              reversed
+            </u>
+             the outcome 
+            <br />
+             of the 2020 Presidential
+            <br />
+            election.
+          </h3>
+          <h4
+            style="padding: 2em 0px;"
+          >
+            That's a very small portion of AAPI voters who already make up 4% of the overall electorate! Your vote really counts!
+          </h4>
+          <img
+            alt="Vote Bubble"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="linksBox"
+        >
+          <a
+            href="https://www.instagram.com/8by8vote/"
+            target="blank"
+          >
+            Follow 8by8 Instagram to learn more
+          </a>
+          <br />
+          <br />
+          <span>
+            Source:  
+            <a
+              href="https://stopaapihate.org/national-report-through-september-2021/"
+            >
+              Stop AAPI Hate Report (2020-2021)
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
