@@ -9,10 +9,10 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
       class="inner_container"
     >
       <div
-        class="why8by8"
+        class="why_8by8"
       >
         <div
-          class="whyHero"
+          class="why_hero"
         >
           <div
             class="padding"
@@ -43,7 +43,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             </aside>
           </div>
           <div
-            class="custom_shape_divider_top_1659139317"
+            class="custom_shape_divider_top"
           >
             <svg
               data-name="Layer 1"
@@ -59,7 +59,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           </div>
         </div>
         <div
-          class="tealStats"
+          class="teal_stats"
         >
           <h1
             class="bold_shadow"
@@ -71,11 +71,11 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           </h3>
         </div>
         <div
-          class="whiteMidsection"
+          class="white_midsection"
         >
           <img
             alt="Teal Curve"
-            class="tealCurve"
+            class="teal_curve"
             data-nimg="1"
             decoding="async"
             height="40"
@@ -152,7 +152,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             />
           </h3>
           <div
-            class="lastStat"
+            class="last_stat"
           >
             <h3>
               AAPI Hate Incidents reported by 
@@ -172,7 +172,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             </h3>
             <img
               alt="Blur Blob"
-              class="blurBlob"
+              class="blur_blob"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -185,7 +185,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           </div>
         </div>
         <div
-          class="finalTealStats"
+          class="final_teal_stats"
         >
           <img
             alt="Teal Top"
@@ -211,7 +211,6 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             class="stat"
           >
             <h3>
-               
               Asian-Americans Make Up
               <br />
               <span
@@ -227,7 +226,6 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             class="stat"
           >
             <h3>
-               
               But Only
               <br />
               <span
@@ -241,7 +239,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           </div>
           <img
             alt="Teal Wave"
-            class="leftSpread"
+            class="left_spread"
             data-nimg="1"
             decoding="async"
             height="40"
@@ -253,7 +251,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           />
         </div>
         <div
-          class="closingQuotes"
+          class="closing_quotes"
         >
           <q>
             The protagonists of my favorite Asian anime shows (DBZ, My Hero Academia, and Naruto) have taught me to always help those in danger. After hearing about the hate crimes from the news and from my AAPI peers, I wanted to help but didn't know how. Luckily I found 8by8, and I resonated with their goal to protect AAPI rights through voter registration.
@@ -264,7 +262,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             </span>
             <img
               alt="Luis"
-              class="img1"
+              class="img_1"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -300,11 +298,11 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             />
           </aside>
           <div
-            class="chefusQuote"
+            class="chefus_quote"
           >
             <img
               alt="Teal Bottom"
-              class="tealBottom"
+              class="teal_bottom"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -327,7 +325,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
             </aside>
             <img
               alt="Teal Top"
-              class="tealTop"
+              class="teal_top"
               data-nimg="1"
               decoding="async"
               height="40"
@@ -340,7 +338,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           </div>
         </div>
         <div
-          class="pseudoFooter"
+          class="pseudo_footer"
         >
           <h4>
             Did you know?
@@ -382,7 +380,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           />
         </div>
         <div
-          class="linksBox"
+          class="links_box"
         >
           <a
             href="https://www.instagram.com/8by8vote/"
