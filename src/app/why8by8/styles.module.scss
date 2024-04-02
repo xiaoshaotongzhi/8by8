@@ -1,0 +1,356 @@
+@use '../../styles/partials';
+
+.why8by8 {
+  div {
+    position: relative;
+  }
+  overflow: hidden;
+  max-width: 100vw;
+  min-width: 375px;
+  img {
+    -moz-drag-over: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    max-width: 500px;
+  }
+  q {
+    font-family: partials.$font-family-lato;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: partials.$line-height-md;
+  }
+  aside {
+    position: relative;
+    display: block;
+    height: 80px;
+    span {
+      font-family: partials.$font-family-lato;
+      font-weight: 500;
+      font-size: 12px;
+      padding-top: 1em;
+      position: absolute;
+      top: 1em;
+      display: block;
+    }
+    img {
+      display: inline;
+      border-radius: 50%;
+      position: absolute;
+      right: -1em;
+      top: 2em;
+      z-index: 2;
+    }
+  }
+  u {
+    @extend .underline;
+  }
+}
+
+.whyHero {
+  background-color: partials.$color-black-8by8;
+  //   height: 450px;
+  color: white;
+  .padding {
+    padding: 0 30px;
+  }
+  h1 {
+    padding: 0.7em 0em;
+  }
+  p {
+    font-family: partials.$font-family-lato;
+    font-weight: 300;
+    font-size: 18px;
+  }
+  .custom_shape_divider_top_1659139317 {
+    bottom: -35px;
+    background: partials.$color-teal;
+  }
+}
+
+.tealStats {
+  background-color: partials.$color-teal;
+  position: relative;
+  padding: 100px 30px 50px 30px;
+  overflow: hidden;
+  h1 {
+    font-size: 64px;
+    font-family: partials.$font-family-bebas-neue;
+    color: partials.$color-yellow;
+    display: inline;
+    padding-left: 10px;
+  }
+  h3 {
+    padding-left: 10px;
+    font-size: 36px;
+    color: partials.$color-black-8by8;
+    display: inline;
+    font-family: partials.$font-family-bebas-neue;
+    line-height: 58px;
+  }
+}
+
+.whiteMidsection {
+  height: fit-content;
+  background-color: white;
+  padding: 180px 30px 80px 30px;
+  h1 {
+    font-family: partials.$font-family-bebas-neue;
+    font-size: 36px;
+    color: black;
+    text-align: center;
+    transform: translateY(-4.5em);
+  }
+  p {
+    font-family: partials.$font-family-lato;
+    font-weight: 300;
+    font-size: 18px;
+  }
+  .tealCurve {
+    transform: rotateX(180deg);
+    position: absolute;
+    height: fit-content;
+    display: block;
+    top: -3%;
+    left: 0;
+    width: 100%;
+  }
+  .blur_divider {
+    min-width: 375px;
+    width: 100vw;
+    transform: translateX(-2em);
+  }
+  .chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-150px);
+  }
+  h3 {
+    font-family: partials.$font-family-lato;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    position: relative;
+    transform: translateY(-100px);
+    img {
+      position: absolute;
+      right: -2em;
+      top: -200%;
+    }
+  }
+  .lastStat {
+    position: relative;
+    background: url(../../../public/static/images/pages/why-8by8/shapes/blob-1.png)
+      50% -130% no-repeat;
+    h3 {
+      font-family: partials.$font-family-bebas-neue;
+      font-size: 24px;
+      letter-spacing: 3%;
+      color: black;
+      text-align: center;
+      padding-top: 2em;
+      line-height: 30px;
+      span {
+        color: white;
+        font-size: 64px;
+        line-height: 110px;
+        text-align: center;
+      }
+    }
+    .blurBlob {
+      transform: rotateY(180deg);
+      position: absolute;
+      top: -80%;
+      left: -2em;
+    }
+  }
+}
+
+.finalTealStats {
+  background-color: partials.$color-teal;
+  padding: 0 2em;
+  font-family: partials.$font-family-bebas-neue;
+  text-align: left;
+  h2 {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+  h1 {
+    font-size: 64px;
+    color: partials.$color-yellow;
+  }
+  img {
+    position: absolute;
+    left: 0;
+    transform: translateY(-99%);
+    width: 100vw;
+    max-width: 500px !important;
+    z-index: 2 !important;
+  }
+  .stat {
+    h3 {
+      font-family: partials.$font-family-bebas-neue;
+      font-size: 24px;
+      letter-spacing: 3%;
+      color: black;
+      text-align: center;
+      padding-top: 2em;
+      line-height: 30px;
+      span {
+        color: white;
+        font-size: 64px;
+        line-height: 100px;
+        text-align: center;
+      }
+    }
+    &:nth-of-type(1) {
+      background: url(../../../public/static/images/pages/why-8by8/shapes/blob-2.svg)
+        50% 55px no-repeat;
+    }
+    &:nth-of-type(2) {
+      background: url(../../../public/static/images/pages/why-8by8/shapes/blob-3.svg)
+        50% 60px no-repeat;
+    }
+  }
+}
+.closingQuotes {
+  padding: 180px 30px 0 30px;
+  .img1 {
+    margin-top: -40px;
+  }
+  .quote_gap {
+    margin-top: 125px;
+  }
+  .chefusQuote {
+    padding: 150px 2em;
+    transform: translateX(-1.9em);
+    background-color: partials.$color-teal;
+    width: 100vw;
+    max-width: 500px;
+    min-width: 375px;
+    height: 350px;
+    .logo {
+      z-index: 10 !important;
+      height: 160px;
+      position: absolute;
+      right: -1em;
+      top: 2em;
+      width: 160px;
+      border-radius: 50%;
+      background:
+        url(../../../public/static/images/pages/why-8by8/partner-logos/chefus.png)
+          50% 50% no-repeat,
+        #ffffff;
+    }
+    .tealTop {
+      position: absolute;
+      transform: rotateX(180deg);
+      width: 100%;
+      left: 0;
+      z-index: 2;
+    }
+  }
+  .tealBottom {
+    @extend .leftSpread;
+    top: -15px;
+  }
+}
+.pseudoFooter {
+  background-color: partials.$color-black-8by8;
+  min-height: 500px;
+  z-index: -1;
+  padding: 200px 2em 0 2em;
+  border-bottom: partials.$color-black-8by8 10px solid;
+  text-align: center;
+  h4 {
+    font-family: partials.$font-family-lato;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  h3 {
+    font-family: partials.$font-family-bebas-neue;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    padding-top: 2em;
+    line-height: 30px;
+    span {
+      padding: 15px 0;
+      color: white;
+      font-size: 64px;
+      line-height: 74px;
+      text-align: center;
+      display: block;
+      background: url(../../../public/static/images/pages/why-8by8/shapes/blob-2.svg)
+        center no-repeat;
+    }
+  }
+  p {
+    font-family: partials.$font-family-lato;
+    font-size: 12px;
+  }
+}
+.linksBox {
+  background-color: partials.$color-black-8by8;
+  padding: 0 2em 2em 2em;
+  text-align: center;
+  a {
+    font-family: partials.$font-family-lato;
+    font-weight: 400;
+    color: partials.$color-teal;
+    font-size: 18px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  span {
+    font-size: 12px;
+    color: #ffffff;
+    a {
+      font-size: 12px;
+      color: #ffffff;
+    }
+  }
+}
+.top_curve {
+  width: 100%;
+  min-width: 375px;
+}
+.leftSpread {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-width: 375px;
+}
+.bold_shadow {
+  -webkit-text-stroke: 2px #101010;
+  text-shadow: -4px 5.5px 0 #101010;
+}
+.custom_shape_divider_top_1659139317 {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+.custom_shape_divider_top_1659139317 svg {
+  position: relative;
+  display: block;
+  max-width: 500px;
+  height: 150px;
+  transform: rotateY(180deg);
+  border-bottom: solid;
+  border-color: partials.$color-black-8by8;
+  border-width: 1em;
+}
+
+.custom_shape_divider_top_1659139317 .shape_fill {
+  fill: partials.$color-black-8by8;
+}
