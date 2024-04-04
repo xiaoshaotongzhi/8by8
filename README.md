@@ -14,3 +14,4 @@ New engineers should review [CONTRIBUTING.md](https://github.com/8by8-org/8by8-c
 - [Existing application source code](https://github.com/8by8-org/web-app)
 - [Deployed application](http://challenge.8by8.us/)
 - [Contributing](https://github.com/8by8-org/8by8-challenge/blob/development/CONTRIBUTING.md)
+- [Style Guide](https://github.com/8by8-org/8by8-challenge/blob/development/STYLE_GUIDE.md)
