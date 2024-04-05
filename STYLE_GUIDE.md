@@ -54,17 +54,15 @@ Please ensure your class/method/function/variable names accurately describe what
 
 If you start to notice a pattern of writing the same functionality again and again across multiple components, create an abstraction that can be reused throughout the codebase. Not only will you save yourself and others time, this type of work also helps encourage the use of these patterns where they are valuable and makes your code easier to read.
 
-Do, however, consider whether your reduction in code duplication would result in a coupling of conceptually unrelated things. If two things are conceptually unrelated, they should not be coupled, and some duplication might be ok. For example, the year might be 2024 and you might have $2024 in a bank account, but if you use the same variable for both these values because they are coincidentally the same, we are all going to time travel a few thousand years into the future when your payday arrives! This absurd example shows that, though DRY code is great, we must consider whether two things are truly related, or simply coincidentally appear to be.
-
 ## Comments
 
 Comments can tell lies. Often, the code around a comment changes but the comment lingers. Developers become uncertain as to why it was put there in the first place, and since they aren't sure whether it is still relevant, they avoid deleting it. The comment then persists, telling a story that is perhaps no longer applicable or is even misleading. Therefore, comments should be used judiciously and according to certain specifications (more on that later). 
 
 Avoid comments that unnecessarily describe granular details of a process. The code itself should be written in such a way that it clearly tells this story on its own. 
 
-Not so good:
-
-    function makeName(gn : string, fn: string) {
+Bad:
+    
+    function name(gn : string, fn: string) {
 	  //capitalize the first letter of given name
 	  gn = gn.slice(0,1).toUpperCase() + gn.slice(1).toLowerCase();
 
@@ -78,7 +76,7 @@ Not so good:
 	  return name;
     }
 
-Better:
+Good:
 
     function formatFullName(givenName : string, familyName : string) : string {
       return `${capitalize(familyName)}, ${capitalize(givenName)}`;
@@ -90,13 +88,13 @@ Better:
 
 Avoid using comments to describe what JSX is supposed to be rendering. The JSX itself should be written such that it is clear to the reader what is to be rendered. If you feel your JSX is becoming difficult to read, break it down into smaller components and/or use more meaningful HTML elements.
 
-Not so good:
+Bad:
 
     {*/ header */}
     <div>
     </div>
 
-Better:
+Good:
 
     <header>
     </header>
@@ -117,7 +115,7 @@ You can set your code editor up so that it formats your code with Prettier each 
 
 ## Indentation Size
 
-Code should be indented by 2 spaces per indentation level.  This requirement can be taken care of simply by using Prettier as described above.
+Code should be indented by 2 spaces per indentation level. This requirement can be taken care of simply by using Prettier as described above.
 
 ## Semi-colons
 
