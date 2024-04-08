@@ -369,6 +369,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           </h4>
           <img
             alt="Vote Bubble"
+            class="vote_bubble"
             data-nimg="1"
             decoding="async"
             height="40"
@@ -391,7 +392,7 @@ exports[`Why8by8 renders why8by8 page unchanged 1`] = `
           <br />
           <br />
           <span>
-            Source:  
+            Source: 
             <a
               href="https://stopaapihate.org/national-report-through-september-2021/"
             >
