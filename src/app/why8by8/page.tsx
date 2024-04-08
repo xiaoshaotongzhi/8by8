@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PageContainer } from '@/components/utils/page-container';
 import TealCurve from '../../../public/static/images/pages/home/teal-curve.svg';
 import TealBottom from '../../../public/static/images/pages/why-8by8/shapes/teal-curve-1.png';
-import VoteBubble from '../../../public/static/images/pages/why-8by8/graphics/speech-bubble.png';
+import VoteBubble from '../../../public/static/images/pages/why-8by8/graphics/speech-bubble.svg';
 import Arnab from '../../../public/static/images/pages/why-8by8/portraits/arnab.png';
 import Luis from '../../../public/static/images/pages/why-8by8/portraits/luis.png';
 import Yudy from '../../../public/static/images/pages/why-8by8/portraits/yudy.png';
@@ -193,7 +193,7 @@ export default function Why8by8() {
             That&apos;s a very small portion of AAPI voters who already make up
             4% of the overall electorate! Your vote really counts!
           </h4>
-          <Image src={VoteBubble} alt="Vote Bubble" />
+          <Image className={styles.vote_bubble} src={VoteBubble} alt="Vote Bubble" />
         </div>
         <div className={styles.links_box}>
           <Link href="https://www.instagram.com/8by8vote/" target={'blank'}>
@@ -202,7 +202,7 @@ export default function Why8by8() {
           <br />
           <br />
           <span>
-            Source: &nbsp;
+            Source:&nbsp;
             <Link href="https://stopaapihate.org/national-report-through-september-2021/">
               Stop AAPI Hate Report (2020-2021)
             </Link>
