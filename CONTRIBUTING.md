@@ -42,6 +42,10 @@ You will receive an invitation to join our Jira team once you have joined the or
 6.  Github actions will run unit tests to determine if the PR can be merged. Additionally, another team member will be required to provide a review.
 7.  If all unit tests pass and the reviewer requests no changes, the PR will be merged into development and you can begin work on any other issues assigned to you. If changes are requested or the test suite does not pass, please make the necessary changes and return to step 4.
 
+## Code Style
+
+Please see the [Style Guide](https://github.com/8by8-org/8by8-challenge/blob/development/STYLE_GUIDE.md) for information about code style requirements.
+
 ## Making a PR
 
 Navigate to this repository and click on "Pull requests." Click the "Create pull request" button. Select "compare across forks." For the head repository, select your fork. In the title of the PR, make sure to include the Jira issue key and the state to transition the issue into (for instance "JRA-123 #done"). This will close the issue in Jira automatically once the PR is merged. Make sure to fill in the description field in the PR and request a review from a team member.
