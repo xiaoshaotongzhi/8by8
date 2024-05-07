@@ -1,12 +1,17 @@
-import { RewardsContext, RewardsContextProvider } from '@/contexts/rewards-context';
+import {
+  RewardsContext,
+  RewardsContextProvider,
+} from '@/contexts/rewards-context';
 import '@testing-library/jest-dom';
 import { cleanup, render, screen } from '@testing-library/react';
 import { useContext } from 'react';
 
 function MockChildComponent() {
-  const {rewards} = useContext(RewardsContext);
+  const { rewards } = useContext(RewardsContext);
   return (
-    <div data-testid="test">{rewards.length > 0 ? rewards[0].name : "your friend"}</div>
+    <div data-testid="test">
+      {rewards.length > 0 ? rewards[0].name : 'your friend'}
+    </div>
   );
 }
 
@@ -17,7 +22,7 @@ describe('RewardsContextProvider', () => {
     render(
       <RewardsContextProvider>
         <MockChildComponent />
-      </RewardsContextProvider>
+      </RewardsContextProvider>,
     );
     const noRewards = screen.queryByTestId('test');
     expect(noRewards).toHaveTextContent('your friend');

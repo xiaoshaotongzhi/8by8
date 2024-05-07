@@ -1,28 +1,31 @@
-'use client'
+'use client';
 import { PageContainer } from '@/components/utils/page-container';
-import { RewardsContext } from "@/contexts/rewards-context";
-import { UserContext } from "@/contexts/user-context";
-import Image from "next/image";
-import Link from "next/link";
+import { RewardsContext } from '@/contexts/rewards-context';
+import { UserContext } from '@/contexts/user-context';
+import { useContextSafely } from '@/hooks/functions/use-context-safely';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useContext, useEffect, useState } from "react";
-import Top from "../../../public/static/images/pages/challenger-welcome/black-curve-lg.png";
-import StepOne from "../../../public/static/images/pages/challenger-welcome/step-1.png";
-import StepTwo from "../../../public/static/images/pages/challenger-welcome/step-2.png";
-import StepThree from "../../../public/static/images/pages/challenger-welcome/step-3.png";
-import StepFour from "../../../public/static/images/pages/challenger-welcome/step-4.png";
-import Logo from "../../../public/static/images/shared/8by8-logo.svg";
+import { useContext, useEffect, useState } from 'react';
+import Top from '../../../public/static/images/pages/challenger-welcome/black-curve-lg.png';
+import StepOne from '../../../public/static/images/pages/challenger-welcome/step-1.png';
+import StepTwo from '../../../public/static/images/pages/challenger-welcome/step-2.png';
+import StepThree from '../../../public/static/images/pages/challenger-welcome/step-3.png';
+import StepFour from '../../../public/static/images/pages/challenger-welcome/step-4.png';
+import Logo from '../../../public/static/images/shared/8by8-logo.svg';
 import styles from './styles.module.scss';
 
 function ChallengerWelcome() {
   const router = useRouter();
-  const activeUser = useContext(UserContext);
+  const userContext = useContextSafely(UserContext, 'ChallengerWelcome');
   const { rewards } = useContext(RewardsContext);
 
-  const [rewardsAvailable, setRewardsAvailable] = useState<boolean>(rewards.some(r => r.rewardAvailable));
+  const [rewardsAvailable, setRewardsAvailable] = useState<boolean>(
+    rewards.some(r => r.rewardAvailable),
+  );
   useEffect(() => {
-    sessionStorage.setItem("UserType", "Challenger");
-  }, [])
+    sessionStorage.setItem('UserType', 'Challenger');
+  }, []);
 
   return (
     <PageContainer>
@@ -46,17 +49,14 @@ function ChallengerWelcome() {
         <button
           type="button"
           className={styles.get_started_btn}
-          onClick={() => router.push("/signup")}
+          onClick={() => router.push('/signup')}
         >
           Get Started
         </button>
 
-        {!activeUser && (
+        {!userContext.user && (
           <p className={styles.signin_line}>
-            Already have an account?{" "}
-            <Link href="/signin">
-              Sign in
-            </Link>
+            Already have an account? <Link href="/signin">Sign in</Link>
           </p>
         )}
 
@@ -79,7 +79,11 @@ function ChallengerWelcome() {
           Get 8 friends via social media or messaging apps to join your
           challenge.
         </p>
-        <Image src={StepTwo} alt="invite your friends" className={styles.image} />
+        <Image
+          src={StepTwo}
+          alt="invite your friends"
+          className={styles.image}
+        />
 
         <h3 className={styles.step_header}>3. Friends take action</h3>
         <p className={styles.step_text}>
@@ -87,27 +91,38 @@ function ChallengerWelcome() {
           register to vote, set up election reminders, or take the challenge
           themselves. You&apos;ll earn 1 badge per friend who takes action!
         </p>
-        <Image src={StepThree} alt="friends take action" className={styles.image} />
+        <Image
+          src={StepThree}
+          alt="friends take action"
+          className={styles.image}
+        />
 
-        <h3 className={styles.step_header}>4. Win the challenge, get a reward!</h3>
+        <h3 className={styles.step_header}>
+          4. Win the challenge, get a reward!
+        </h3>
         <p className={styles.step_text}>
           {rewardsAvailable ?
-          "When all 8 of your friends took action in your challenge within 8 days, and you win! Then select and enjoy a reward from one of our amazing partners." :
-          "When you get 8 badges in 8 days, you win the challenge! Most importantly, you helped the community move closer to greater AAPI representation!"}
+            'When all 8 of your friends took action in your challenge within 8 days, and you win! Then select and enjoy a reward from one of our amazing partners.'
+          : 'When you get 8 badges in 8 days, you win the challenge! Most importantly, you helped the community move closer to greater AAPI representation!'
+          }
         </p>
-        <Image src={StepFour} alt="earn 8 badges in 8 days" className={styles.image} />
+        <Image
+          src={StepFour}
+          alt="earn 8 badges in 8 days"
+          className={styles.image}
+        />
 
         <button
           type="button"
           className={styles.get_started_btn}
-          onClick={() => router.push("/signup")}
+          onClick={() => router.push('/signup')}
         >
           Get Started
         </button>
 
-        {!activeUser && (
+        {!userContext.user && (
           <p className={styles.signin_line}>
-            Already have an account?{" "}
+            Already have an account?{' '}
             <Link className={styles.signin_link_black} href="/signin">
               Sign in
             </Link>
