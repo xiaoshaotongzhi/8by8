@@ -99,7 +99,11 @@ export default function Why8by8() {
               <br />
               Of All Reports
             </h3>
-            <Image src={BlurBlob} className={styles.blur_blob} alt="Blur Blob" />
+            <Image
+              src={BlurBlob}
+              className={styles.blur_blob}
+              alt="Blur Blob"
+            />
           </div>
         </div>
         <div className={styles.final_teal_stats}>
@@ -193,7 +197,11 @@ export default function Why8by8() {
             That&apos;s a very small portion of AAPI voters who already make up
             4% of the overall electorate! Your vote really counts!
           </h4>
-          <Image className={styles.vote_bubble} src={VoteBubble} alt="Vote Bubble" />
+          <Image
+            className={styles.vote_bubble}
+            src={VoteBubble}
+            alt="Vote Bubble"
+          />
         </div>
         <div className={styles.links_box}>
           <Link href="https://www.instagram.com/8by8vote/" target={'blank'}>
