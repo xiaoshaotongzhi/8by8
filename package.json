@@ -14,7 +14,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "canvas": "^2.11.2",
     "inversify": "^6.0.2",
     "luxon": "^3.4.4",
     "next": "14.1.4",
@@ -43,6 +42,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "builder-pattern": "^2.2.0",
+    "canvas": "^2.11.2",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "eslint-config-prettier": "^9.1.0",
