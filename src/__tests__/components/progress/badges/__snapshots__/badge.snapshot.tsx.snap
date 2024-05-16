@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleBadgeComponent renders action badge unchanged. 1`] = `
+<div>
+  <div
+    class="badges"
+  >
+    <div
+      class="blob"
+    >
+      <img
+        alt="player badge background blob"
+        class="blob_img blob_img_2"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+    </div>
+    <div
+      class="blob_content"
+    >
+      <img
+        alt="action badge icon"
+        class="icon"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+      <h3>
+        You Registered
+      </h3>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SingleBadgeComponent renders avatar badge unchanged. 1`] = `
+<div>
+  <div
+    class="badges"
+  >
+    <div
+      class="blob"
+    >
+      <img
+        alt="player badge background blob"
+        class="blob_img blob_img_1"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+    </div>
+    <div
+      class="blob_content"
+    >
+      <img
+        alt="player badge icon"
+        class="icon"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+      <h3>
+        Player
+      </h3>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SingleBadgeComponent renders default badge unchanged. 1`] = `
+<div>
+  <div
+    class="badges"
+  >
+    <div
+      class="blob"
+    >
+      <img
+        alt="player badge background blob"
+        class="disable"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+    </div>
+    <div
+      class="blob_content"
+    >
+      <p
+        class="index"
+      >
+        1
+      </p>
+    </div>
+  </div>
+</div>
+`;
