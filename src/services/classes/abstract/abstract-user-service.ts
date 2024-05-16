@@ -26,4 +26,5 @@ export abstract class AbstractUserService {
       | Partial<Observer<User | null>>
       | ((user: User | null) => void),
   ): Subscription;
+  public abstract restartChallenge(): void;
 }
