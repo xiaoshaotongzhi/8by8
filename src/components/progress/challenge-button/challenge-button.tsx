@@ -2,9 +2,6 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import type { User } from '@/model/types/user';
 import styles from './styles.module.scss';
 
-/**
- * Define Props for ChallengeButton component
- */
 interface ChallengeButtonProps {
   user: User | null;
   daysLeft: number;
@@ -16,7 +13,7 @@ interface ChallengeButtonProps {
 /**
  * Renders a component for different buttons
  *
- * @param user - The curent user
+ * @param user - The current user
  *
  * @param daysLeft - Number of days left for the challenge
  *

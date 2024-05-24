@@ -32,6 +32,8 @@ export const DaysLeftChallenge: Story = {
       challengeEndDate: '12-31-2025',
       completedChallenge: false,
       redeemedAward: false,
+      contributedTo: [],
+      shareCode: '',
     };
     return (
       <GlobalStylesProvider>
@@ -64,6 +66,8 @@ export const NoDaysLeftChallenge: Story = {
       challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
       completedChallenge: false,
       redeemedAward: false,
+      contributedTo: [],
+      shareCode: '',
     };
     return (
       <GlobalStylesProvider>
@@ -101,6 +105,8 @@ export const CompletedChallenge: Story = {
       challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
       completedChallenge: true,
       redeemedAward: true,
+      contributedTo: [],
+      shareCode: '',
     };
     return (
       <GlobalStylesProvider>

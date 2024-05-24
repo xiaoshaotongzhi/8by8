@@ -1,4 +1,4 @@
-import { render, cleanup} from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import { mockDialogMethods } from '@/testing-utils/mock-dialog-methods';
 import Progress from '@/app/progress/page';
 import { UserType } from '@/model/enums/user-type';
@@ -25,6 +25,8 @@ describe('Progress', () => {
       challengeEndDate: '12-31-2025',
       completedChallenge: false,
       redeemedAward: false,
+      contributedTo: [],
+      shareCode: '',
     };
 
     const { container } = render(

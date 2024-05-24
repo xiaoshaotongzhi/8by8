@@ -31,6 +31,8 @@ describe('ProgressTest', () => {
     challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
     completedChallenge: true,
     redeemedAward: false,
+    contributedTo: [],
+    shareCode: '',
   };
 
   it('renders user with 2 badges, completedChallenge: true, redeemedAward:false, registerToVote: false', () => {
@@ -100,10 +102,8 @@ describe('ProgressTest', () => {
   });
 
   it('renders user when all badges are completed.', () => {
-    for (let i = 0; i < user.badges.length; i++) {
-      if (Object.keys(user.badges[i]).length === 0) {
+    for (let i = 2; i < 8; i++) {
         user.badges[i] = { playerName: `test${i}`, playerAvatar: 1 };
-      }
     }
 
     render(

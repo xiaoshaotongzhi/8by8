@@ -1,4 +1,4 @@
-import { delay } from '@/hooks/functions/delay';
+import { delay } from '@/utils/delay';
 import { Dispatch, SetStateAction } from 'react';
 
 export async function startConfettiTimer(

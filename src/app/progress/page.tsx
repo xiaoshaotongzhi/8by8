@@ -3,13 +3,13 @@ import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { PageContainer } from '@/components/utils/page-container';
 import { UserContext } from '@/contexts/user-context';
-import { useDaysRemaining } from '@/hooks/functions/progress/use-days-remaining';
+import { calculateDaysRemaining } from '@/utils/progress/calculate-days-remaining';
 import { useContextSafely } from '@/hooks/functions/use-context-safely';
 import { ChallengeButton } from '@/components/progress/challenge-button/challenge-button';
-import ClaimReward from '@/../public/static/images/pages/progress/claiming-a-reward.svg';
-import DaysRemainingBlob from '@/../public/static/images/pages/progress/days-remaining-blob.svg';
+import claimReward from '@/../public/static/images/pages/progress/claiming-a-reward.svg';
+import daysRemainingBlob from '@/../public/static/images/pages/progress/days-remaining-blob.svg';
 import { ConfettiAnimation } from '@/components/utils/confetti-animation';
-import BlackCurve from '@/../public/static/images/pages/progress/black-curve.svg';
+import blackCurve from '@/../public/static/images/pages/progress/black-curve.svg';
 import { Badges } from '@/components/progress/badges';
 import { Modal } from '@/components/utils/modal';
 import styles from './styles.module.scss';
@@ -19,7 +19,7 @@ export default function Progress() {
     UserContext,
     'UserContext',
   );
-  const daysLeft = useDaysRemaining(user);
+  const daysLeft = calculateDaysRemaining(user);
   const [openModal, setOpenModal] = useState(false);
   const toggleInvite = useRef(null);
 
@@ -53,7 +53,7 @@ export default function Progress() {
           <div className={styles.days_blob_container}>
             <Image
               className={styles.blob}
-              src={user?.completedChallenge ? ClaimReward : DaysRemainingBlob}
+              src={user?.completedChallenge ? claimReward : daysRemainingBlob}
               alt="days remaining blob"
             />
             {!user?.completedChallenge && (
@@ -86,22 +86,16 @@ export default function Progress() {
             )}
             */}
         </section>
-        <Image className={styles.curve} src={BlackCurve} alt="black curve" />
+        <Image className={styles.curve} src={blackCurve} alt="black curve" />
 
         <section className={styles.section_2}>
           <h3>
             You completed{' '}
-            {(
-              user?.badges.filter(badge => Object.keys(badge).length !== 0)
-                .length === 8
-            ) ?
+            {user?.badges.filter(badge => badge !== null).length === 8 ?
               ' all '
               : ' '}
             <span className={styles.underline}>
-              {
-                user?.badges.filter(badge => Object.keys(badge).length !== 0)
-                  .length
-              }
+              {user?.badges.filter(badge => badge !== null).length}
             </span>{' '}
             badges
           </h3>
@@ -134,7 +128,7 @@ export default function Progress() {
             </div>
           )}
         </section>
-        <Badges badges={user?.badges} />
+        <Badges badges={user!.badges} />
 
         <section className={styles.section_4}>
           <ChallengeButton

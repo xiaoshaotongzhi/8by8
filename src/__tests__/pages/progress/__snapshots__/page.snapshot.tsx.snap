@@ -112,7 +112,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"
@@ -141,7 +141,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"
@@ -170,7 +170,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"
@@ -199,7 +199,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"
@@ -228,7 +228,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"
@@ -257,7 +257,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"
@@ -286,7 +286,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"
@@ -315,7 +315,7 @@ exports[`Progress renders progress page unchanged 1`] = `
               class="blob"
             >
               <img
-                alt="player badge background blob"
+                alt="number badge background blob"
                 class="disable"
                 data-nimg="1"
                 decoding="async"

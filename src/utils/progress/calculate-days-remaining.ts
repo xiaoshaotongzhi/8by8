@@ -16,10 +16,10 @@ import type { User } from '@/model/types/user';
  * const { user } = useContextSafely(UserContext, 'UserContext');
  *
  * // Call hook to get days remaining in challenge for that user
- * const daysLeft = useDaysRemaining(user);
+ * const daysLeft = calculateDaysRemaining(user);
  */
 
-export function useDaysRemaining(user: User | null): number {
+export function calculateDaysRemaining(user: User | null): number {
   let daysLeft = 0;
 
   if (user && user.challengeEndDate) {

@@ -1,4 +1,4 @@
-import { delay } from '@/hooks/functions/delay';
+import { delay } from "@/utils/delay";
 
 describe('delay', () => {
   it('should resolve Promise after specified time', async () => {

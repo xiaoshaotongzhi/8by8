@@ -1,11 +1,8 @@
 'use-client';
 import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
-import { startConfettiTimer } from '@/hooks/functions/progress/start-confetti-timer';
+import { startConfettiTimer } from './start-confetti-timer';
 
-/**
- * Define Props for ConfettiAnimation component
- */
 interface ConfettiAnimationProps {
   time: number;
 }

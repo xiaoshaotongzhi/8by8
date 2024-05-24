@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, cleanup, screen, fireEvent } from '@testing-library/react';
 import { ChallengeButton } from '@/components/progress/challenge-button';
+import type { User } from '@/model/types/user';
 
 describe('ChallengeComplete', () => {
   afterEach(cleanup);
@@ -9,7 +10,7 @@ describe('ChallengeComplete', () => {
   const setOpenModal = jest.fn();
 
   it('renders a Invite friends button as default invokes toggleInvite when clicked.', () => {
-    const user = { completedChallenge: false };
+    const user: User = { completedChallenge: false } as User;
     const daysLeft = 2;
     render(
       <ChallengeButton
@@ -28,7 +29,7 @@ describe('ChallengeComplete', () => {
   });
 
   it('renders a Share button when challenge is completed and invokes toggleInvite when clicked.', () => {
-    const user = { completedChallenge: true };
+    const user: User = { completedChallenge: true } as User;
     const daysLeft = 0;
     render(
       <ChallengeButton
@@ -47,7 +48,7 @@ describe('ChallengeComplete', () => {
   });
 
   it('renders a Restart Challenge button when challenge is not completed and daysLeft is 0.', () => {
-    const user = { completedChallenge: false };
+    const user: User = { completedChallenge: false } as User;
     const daysLeft = 0;
     render(
       <ChallengeButton
@@ -63,7 +64,7 @@ describe('ChallengeComplete', () => {
   });
 
   it('invokes restartChallenge, and setOpenModal when Restart Challenge button is clicked.', () => {
-    const user = { completedChallenge: false };
+    const user: User = { completedChallenge: false } as User;
     const daysLeft = 0;
     render(
       <ChallengeButton
@@ -81,7 +82,7 @@ describe('ChallengeComplete', () => {
   });
 
   it('sets button to an Invite friends button when Restart Challenge button is clicked and invokes toggleInvite when Invite friends button is clicked.', () => {
-    const user = { completedChallenge: false };
+    const user: User = { completedChallenge: false } as User;
     const daysLeft = 0;
     render(
       <ChallengeButton
