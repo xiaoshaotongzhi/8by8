@@ -1,41 +1,44 @@
-import { BadgeComponent } from './badge';
 import type { Badge } from '@/model/types/badge';
+import { NumberBadge } from './number-badge';
 import styles from './styles.module.scss';
+import { isActionBadge } from '../../../utils/is-action-badge';
+import { ActionBadge } from './action-badge';
+import { isPlayerBadge } from '../../../utils/is-player-badge';
+import { PlayerBadge } from './player-badge';
 
-/**
- * Define Props for Badges component
- */
 interface BadgesProps {
-  badges: Badge[] | undefined;
+  badges: (Badge | null)[];
 }
 
 /**
  * Renders a component to display all badges
  *
- * @param badges - Array of Badges
+ * @param badges - Array of Badges or null
  *
  * @returns A React component displaying each badge
  *
  * @remarks
- * The array can hold a maximum of 8 badges and pops off badges if the length of the array is greater than 8.
+ * The array can hold a maximum of 8 badges.
  *
- * The array pushes empty Objects until the length of the array matches 8.
+ * The array pushes null values until the length of the array matches 8.
  */
 export function Badges({ badges }: BadgesProps): JSX.Element {
-  if (badges) {
-    while (badges.length > 8) {
-      badges.pop();
-    }
+  const badgeArray = badges.slice(0, 8);
 
-    while (badges.length < 8) {
-      badges.push({});
-    }
+  while (badgeArray.length < 8) {
+    badgeArray.push(null);
   }
 
   return (
     <section className={styles.section_3}>
-      {badges?.map((badge, index) => {
-        return <BadgeComponent badge={badge} index={index + 1} key={index} />;
+      {badgeArray.map((badge, index) => {
+        if (!badge) {
+          return <NumberBadge index={index + 1} key={index} />;
+        } else if (isActionBadge(badge)) {
+          return <ActionBadge badge={badge} index={index + 1} key={index} />;
+        } else if (isPlayerBadge(badge)) {
+          return <PlayerBadge badge={badge} index={index + 1} key={index} />;
+        }
       })}
     </section>
   );

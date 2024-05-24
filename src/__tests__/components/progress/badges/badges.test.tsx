@@ -7,7 +7,7 @@ import { Actions } from '@/model/enums/actions';
 describe('Bagdes', () => {
   afterEach(cleanup);
 
-  it('adds empty badges until the length is 8.', () => {
+  it('does not modify the original badges array.', () => {
     const badges: Badge[] = [
       { action: Actions.VoterRegistration },
       { action: Actions.SharedChallenge },
@@ -15,10 +15,10 @@ describe('Bagdes', () => {
     ];
     render(<Badges badges={badges} />);
 
-    expect(badges).toHaveLength(8);
+    expect(badges).toHaveLength(3);
   });
 
-  it('removes badges until the length is 8.', () => {
+  it('does not modify the original badges array', () => {
     const badges: Badge[] = [
       { action: Actions.VoterRegistration },
       { action: Actions.SharedChallenge },
@@ -33,6 +33,6 @@ describe('Bagdes', () => {
     ];
     render(<Badges badges={badges} />);
 
-    expect(badges).toHaveLength(8);
+    expect(badges).toHaveLength(10);
   });
 });

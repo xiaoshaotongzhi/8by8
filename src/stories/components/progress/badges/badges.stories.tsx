@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { GlobalStylesProvider } from '@/stories/global-styles-provider';
-import { BadgeComponent } from '@/components/progress/badges';
+import { NumberBadge } from '@/components/progress/badges/number-badge';
+import { ActionBadge } from '@/components/progress/badges/action-badge';
+import { PlayerBadge } from '@/components/progress/badges/player-badge';
 import { Badges } from '@/components/progress/badges';
 import type { Badge } from '@/model/types/badge';
 import { Actions } from '@/model/enums/actions';
@@ -13,13 +15,33 @@ export default meta;
 
 type Story = StoryObj<typeof Badges>;
 
-export const SingleBadge: Story = {
+export const SingleNumberBadge: Story = {
   render: () => {
-    const badge: Badge = {};
-
     return (
       <GlobalStylesProvider>
-        <BadgeComponent badge={badge} index={1} />
+        <NumberBadge index={1} />
+      </GlobalStylesProvider>
+    );
+  },
+};
+
+export const SingleActionBadge: Story = {
+  render: () => {
+    const actionBadge: Badge = { action: Actions.VoterRegistration };
+    return (
+      <GlobalStylesProvider>
+        <ActionBadge badge={actionBadge} index={2} />
+      </GlobalStylesProvider>
+    );
+  },
+};
+
+export const SinglePlayerBadge: Story = {
+  render: () => {
+    const playerBadge: Badge = { playerName: 'Player', playerAvatar: 1 };
+    return (
+      <GlobalStylesProvider>
+        <PlayerBadge badge={playerBadge} index={3} />
       </GlobalStylesProvider>
     );
   },
@@ -30,7 +52,7 @@ export const AllBadges: Story = {
     const badges: Badge[] = [
       { action: Actions.VoterRegistration },
       { action: Actions.SharedChallenge },
-      { playerName: 'test', playerAvatar: 1 },
+      { playerName: 'Player', playerAvatar: 1 },
     ];
     return (
       <GlobalStylesProvider>
