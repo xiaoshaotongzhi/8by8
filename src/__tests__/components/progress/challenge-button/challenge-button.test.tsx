@@ -2,12 +2,20 @@ import '@testing-library/jest-dom';
 import { render, cleanup, screen, fireEvent } from '@testing-library/react';
 import { ChallengeButton } from '@/components/progress/challenge-button';
 import type { User } from '@/model/types/user';
+import { Dispatch, RefObject, SetStateAction } from 'react';
 
 describe('ChallengeComplete', () => {
+  let toggleInvite: RefObject<() => null>;
+  let restartChallenge: () => null;
+  let setOpenModal: Dispatch<SetStateAction<boolean>>;
+
+  beforeEach(() => {
+    toggleInvite = { current: jest.fn() };
+    restartChallenge = jest.fn();
+    setOpenModal = jest.fn();
+  });
+
   afterEach(cleanup);
-  const toggleInvite = { current: jest.fn() };
-  const restartChallenge = jest.fn();
-  const setOpenModal = jest.fn();
 
   it('renders a Invite friends button as default invokes toggleInvite when clicked.', () => {
     const user: User = { completedChallenge: false } as User;
