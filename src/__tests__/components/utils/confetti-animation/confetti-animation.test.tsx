@@ -7,14 +7,14 @@ describe('ConfettiAnimation', () => {
   afterEach(cleanup);
 
   it('renders a confetti animation component', () => {
-    render(<ConfettiAnimation time={2000} />);
+    render(<ConfettiAnimation time={100} />);
     const confettiAnimation = screen.getByTestId('confetti');
     expect(confettiAnimation).toBeInTheDocument();
   });
 
   it('invokes setDimensions on render.', () => {
     window.innerWidth = 1000;
-    render(<ConfettiAnimation time={2000} />);
+    render(<ConfettiAnimation time={100} />);
     act(() => {
       const resizeEvent = new Event('resize');
       window.dispatchEvent(resizeEvent);
