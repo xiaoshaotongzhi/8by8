@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 import { Header } from '../../components/header';
-import { UserContext } from '../../contexts/user-context';
+import { UserContext, UserContextType } from '../../contexts/user-context';
 import { GlobalStylesProvider } from '../global-styles-provider';
 import { UserType } from '../../model/enums/user-type';
 import type { User } from '../../model/types/user';
@@ -16,7 +17,13 @@ type Story = StoryObj<typeof Header>;
 export const UserIsSignedOut: Story = {
   render: () => (
     <GlobalStylesProvider>
-      <UserContext.Provider value={{ user: null }}>
+      <UserContext.Provider
+        value={
+          {
+            user: null,
+          } as UserContextType
+        }
+      >
         <Header />
       </UserContext.Provider>
     </GlobalStylesProvider>
@@ -25,11 +32,11 @@ export const UserIsSignedOut: Story = {
 
 export const ChallengerIsSignedIn: Story = {
   render: () => {
-    const user: User = {
+    const [user, setUser] = useState<User | null>({
       uid: '123',
       email: 'challenger@example.com',
       name: 'Challenger',
-      avatar: 1,
+      avatarId: '0',
       type: UserType.Challenger,
       completedActions: {
         sharedChallenge: false,
@@ -40,12 +47,20 @@ export const ChallengerIsSignedIn: Story = {
       challengeEndDate: '12-31-2025',
       completedChallenge: false,
       redeemedAward: false,
-      completedActionForChallenger: false,
-    };
+      contributedTo: [],
+      shareCode: '',
+    });
 
     return (
       <GlobalStylesProvider>
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider
+          value={
+            {
+              user,
+              signOut: () => setUser(null),
+            } as UserContextType
+          }
+        >
           <Header />
         </UserContext.Provider>
       </GlobalStylesProvider>
@@ -55,11 +70,11 @@ export const ChallengerIsSignedIn: Story = {
 
 export const PlayerIsSignedIn: Story = {
   render: () => {
-    const user: User = {
+    const [user, setUser] = useState<User | null>({
       uid: '456',
       email: 'player@example.com',
       name: 'Player',
-      avatar: 2,
+      avatarId: '1',
       type: UserType.Player,
       completedActions: {
         sharedChallenge: false,
@@ -70,17 +85,25 @@ export const PlayerIsSignedIn: Story = {
       challengeEndDate: '',
       completedChallenge: false,
       redeemedAward: false,
-      completedActionForChallenger: false,
       invitedBy: {
         uid: '123',
         name: 'Challenger',
-        avatar: 1,
+        avatarId: '0',
       },
-    };
+      contributedTo: [],
+      shareCode: '',
+    });
 
     return (
       <GlobalStylesProvider>
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider
+          value={
+            {
+              user,
+              signOut: () => setUser(null),
+            } as UserContextType
+          }
+        >
           <Header />
         </UserContext.Provider>
       </GlobalStylesProvider>
@@ -90,11 +113,11 @@ export const PlayerIsSignedIn: Story = {
 
 export const HybridUserIsSignedIn: Story = {
   render: () => {
-    const user: User = {
+    const [user, setUser] = useState<User | null>({
       uid: '456',
       email: 'hybrid@example.com',
       name: 'Hybrid',
-      avatar: 3,
+      avatarId: '2',
       type: UserType.Hybrid,
       completedActions: {
         sharedChallenge: false,
@@ -105,17 +128,25 @@ export const HybridUserIsSignedIn: Story = {
       challengeEndDate: '',
       completedChallenge: false,
       redeemedAward: false,
-      completedActionForChallenger: false,
       invitedBy: {
         uid: '123',
         name: 'Challenger',
-        avatar: 1,
+        avatarId: '0',
       },
-    };
+      contributedTo: [],
+      shareCode: '',
+    });
 
     return (
       <GlobalStylesProvider>
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider
+          value={
+            {
+              user,
+              signOut: () => setUser(null),
+            } as UserContextType
+          }
+        >
           <Header />
         </UserContext.Provider>
       </GlobalStylesProvider>

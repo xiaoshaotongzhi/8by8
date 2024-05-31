@@ -1,0 +1,23 @@
+@use '../../../styles/partials' as *;
+
+.center_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: $spacing-sm;
+}
+
+.content {
+  display: inline-block;
+}
+
+.messages_wrapper {
+  display: flex;
+  margin-top: 14px;
+}
+
+.messages {
+  flex-grow: 1;
+  width: 0;
+}
