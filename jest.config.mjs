@@ -8,6 +8,7 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
 const config = {
+  setupFiles: ['jest-canvas-mock'],
   testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
   //add directories here to include them in coverage reports and threshold

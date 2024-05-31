@@ -17,6 +17,7 @@ interface UserContextType {
   ): Promise<void>;
   signInWithEmail(email: string): Promise<void>;
   signOut(): void;
+  restartChallenge(): void;
 }
 
 const UserContext = createNamedContext<UserContextType>('UserContext');
@@ -41,6 +42,7 @@ function UserContextProvider({ children }: PropsWithChildren) {
         signUpWithEmail: userService.signUpWithEmail,
         signInWithEmail: userService.signInWithEmail,
         signOut: userService.signOut,
+        restartChallenge: userService.restartChallenge,
         user,
       }}
     >
