@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './styles.module.scss';
 
-export function Spinner() {
+export function LoadingWheel() {
   return (
     <>
       <div className={styles.transparent_overlay}></div>

@@ -3,6 +3,7 @@ import { useSubmitted } from 'fully-formed';
 import { TurnstileTokenField } from './turnstile-token-field';
 import { Messages } from '../messages';
 import styles from './styles.module.scss';
+import { DummySiteKeys } from '@/constants/dummy-site-keys';
 
 interface TurnstileProps {
   /**
@@ -10,11 +11,13 @@ interface TurnstileProps {
    */
   field: TurnstileTokenField;
   /**
-   * A public site key from Cloudflare. If omitted, it will get the site key
-   * from the `NEXT_PUBLIC_TURNSTILE_SITE_KEY` env variable.
+   * A public site key from Cloudflare. If omitted and `process.env.NODE_ENV` is
+   * "development", a dummy site key that always passes will be used. Otherwise,
+   * if omitted, the component will get the site key from
+   * `process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
    *
-   * This should be omitted when including the component in a page, but can be
-   * included in order to pass various dummy keys to the component for testing.
+   * This should be omitted when including the component in a page, but should
+   * be supplied when testing the component.
    *
    * Dummy keys can be found at
    * {@link https://developers.cloudflare.com/turnstile/troubleshooting/testing/#dummy-sitekeys-and-secret-keys}.
@@ -31,21 +34,26 @@ interface TurnstileProps {
  * @returns A Cloudflare Turnstile widget.
  *
  * @remarks
- * If omitted, the site key will come from the `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
- * env variable. The site key should be omitted when including this component in
- * a page, but can be included for the purpose of supplying dummy site keys for
- * testing.
+ * If the `sitekey` prop is omitted and `process.env.NODE_ENV` is
+ * "development", a dummy site key that always passes will be used. Otherwise,
+ * if the site key was omitted, the component will get the site key from
+ * `process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
  *
- * Dummy keys can be found at
- * {@link https://developers.cloudflare.com/turnstile/troubleshooting/testing/#dummy-sitekeys-and-secret-keys}.
+ * The site key should be omitted when including the component in a page, but
+ * should be supplied when testing the component.
  */
 export function Turnstile({ field, sitekey }: TurnstileProps) {
+  sitekey ??=
+    process.env.NODE_ENV === 'development' ?
+      DummySiteKeys.ALWAYS_PASSES
+    : process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!;
+
   return (
     <div className={styles.center_content}>
       <div className={styles.content}>
         <ReactTurnstile
           id={field.id}
-          sitekey={sitekey ?? process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          sitekey={sitekey}
           onVerify={token => {
             field.onVerify(token);
           }}

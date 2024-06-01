@@ -10,6 +10,7 @@ import { TurnstileTokenField } from '@/components/form-components/turnstile/turn
 import { GlobalStylesProvider } from '@/stories/global-styles-provider';
 import { FormEventHandler } from 'react';
 import { PageContainer } from '@/components/utils/page-container';
+import { DummySiteKeys } from '@/constants/dummy-site-keys';
 
 const meta: Meta<typeof Turnstile> = {
   component: Turnstile,
@@ -70,18 +71,18 @@ type Story = StoryObj<typeof Turnstile>;
 
 export const AlwaysPasses: Story = {
   render: () => (
-    <FormWithTurnstileComponent sitekey="1x00000000000000000000AA" />
+    <FormWithTurnstileComponent sitekey={DummySiteKeys.ALWAYS_PASSES} />
   ),
 };
 
 export const AlwaysBlocks: Story = {
   render: () => (
-    <FormWithTurnstileComponent sitekey="2x00000000000000000000AB" />
+    <FormWithTurnstileComponent sitekey={DummySiteKeys.ALWAYS_BLOCKS} />
   ),
 };
 
 export const ForcesInteractiveChallenge: Story = {
   render: () => (
-    <FormWithTurnstileComponent sitekey="3x00000000000000000000FF" />
+    <FormWithTurnstileComponent sitekey={DummySiteKeys.FORCES_CHALLENGE} />
   ),
 };

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { PageContainer } from '@/components/utils/page-container';
 import { InputGroup } from '@/components/form-components/input-group';
 import { SelectAvatar } from './select-avatar';
-import { Spinner } from '@/components/utils/spinner';
+import { LoadingWheel } from '@/components/utils/loading-wheel';
 import { Turnstile } from '@/components/form-components/turnstile/turnstile';
 import { SubmissionError } from '@/components/form-components/submission-error';
 import { useContextSafely } from '@/hooks/functions/use-context-safely';
@@ -53,7 +53,7 @@ export default function SignUp() {
       {hasSubmissionError && (
         <SubmissionError text="Something went wrong. Please try again." />
       )}
-      {isLoading && <Spinner />}
+      {isLoading && <LoadingWheel />}
       <form onSubmit={onSubmit} noValidate>
         <div className={styles.title_and_fields_container}>
           <h1 className={styles.title}>

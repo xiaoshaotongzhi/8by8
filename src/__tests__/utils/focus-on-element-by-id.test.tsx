@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { focusOnElementById } from '@/utils/focus-on-element-by-id';
 
