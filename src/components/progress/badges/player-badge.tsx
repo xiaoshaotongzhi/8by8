@@ -1,5 +1,5 @@
 import type { PlayerBadge } from '@/model/types/player-badge';
-import type { Avatar } from '@/model/types/avatar.type';
+import type { Avatar } from '@/model/types/avatar';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 

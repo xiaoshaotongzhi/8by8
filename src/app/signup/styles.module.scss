@@ -1,0 +1,46 @@
+@use '../../styles/partials' as *;
+
+.title_and_fields_container {
+  margin: $spacing-md $spacing-vertical-gutter $spacing-md
+    $spacing-vertical-gutter;
+}
+
+.title {
+  @extend .h1;
+  margin-bottom: $spacing-sm;
+}
+
+.instruction {
+  @extend .b6;
+  margin-bottom: 14px;
+}
+
+.input_group {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.tos_agreement_container {
+  margin-left: 2 * $spacing-vertical-gutter;
+  margin-right: 2 * $spacing-vertical-gutter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.tos_agreement {
+  text-align: center;
+}
+
+.submit_btn_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-sm;
+}
+
+.sign_in_link_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-lg;
+}

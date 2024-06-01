@@ -95,6 +95,18 @@ export function Input({
     return classNames.join(' ');
   });
 
+  const ariaInvalid = useMultiPipe([field, ...groups], states => {
+    const validity = ValidityUtils.minValidity(states);
+    const fieldState = states[0];
+
+    return (
+      ValidityUtils.isInvalid(validity) &&
+      (fieldState.hasBeenModified ||
+        fieldState.hasBeenBlurred ||
+        fieldState.submitted)
+    );
+  });
+
   return (
     <input
       name={field.name}
@@ -105,6 +117,7 @@ export function Input({
       autoComplete={autoComplete}
       aria-required={ariaRequired}
       aria-describedby={ariaDescribedBy}
+      aria-invalid={ariaInvalid}
       {...useUserInput(field)}
       {...useFocusEvents(field)}
       className={className}

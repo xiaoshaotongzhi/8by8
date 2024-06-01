@@ -36,7 +36,7 @@ export const ChallengerIsSignedIn: Story = {
       uid: '123',
       email: 'challenger@example.com',
       name: 'Challenger',
-      avatarId: '0',
+      avatar: '0',
       type: UserType.Challenger,
       completedActions: {
         sharedChallenge: false,
@@ -74,7 +74,7 @@ export const PlayerIsSignedIn: Story = {
       uid: '456',
       email: 'player@example.com',
       name: 'Player',
-      avatarId: '1',
+      avatar: '1',
       type: UserType.Player,
       completedActions: {
         sharedChallenge: false,
@@ -88,7 +88,7 @@ export const PlayerIsSignedIn: Story = {
       invitedBy: {
         uid: '123',
         name: 'Challenger',
-        avatarId: '0',
+        avatar: '0',
       },
       contributedTo: [],
       shareCode: '',
@@ -117,7 +117,7 @@ export const HybridUserIsSignedIn: Story = {
       uid: '456',
       email: 'hybrid@example.com',
       name: 'Hybrid',
-      avatarId: '2',
+      avatar: '2',
       type: UserType.Hybrid,
       completedActions: {
         sharedChallenge: false,
@@ -131,7 +131,7 @@ export const HybridUserIsSignedIn: Story = {
       invitedBy: {
         uid: '123',
         name: 'Challenger',
-        avatarId: '0',
+        avatar: '0',
       },
       contributedTo: [],
       shareCode: '',

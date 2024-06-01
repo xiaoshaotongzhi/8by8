@@ -4,7 +4,7 @@ import { createNamedContext } from '../hooks/functions/create-named-context';
 import { useContextSafely } from '@/hooks/functions/use-context-safely';
 import { ServicesContext } from './services-context';
 import type { User } from '../model/types/user';
-import type { Avatar } from '@/model/types/avatar.type';
+import type { Avatar } from '@/model/types/avatar';
 import type { UserType } from '@/model/enums/user-type';
 
 interface UserContextType {

@@ -1,12 +1,13 @@
 import {
   StateManager,
-  Submittable,
-  SubmittableState,
   Validity,
   type FormChild,
   type FormChildState,
   type MessageBearer,
   type MessageBearerState,
+  type Identifiable,
+  type Submittable,
+  type SubmittableState,
   type StateWithChanges,
 } from 'fully-formed';
 
@@ -24,9 +25,14 @@ type TurnstileTokenFieldState = FormChildState<string> &
  *
  */
 export class TurnstileTokenField
-  implements FormChild<'turnstileToken', string>, MessageBearer, Submittable
+  implements
+    FormChild<'turnstileToken', string>,
+    MessageBearer,
+    Identifiable,
+    Submittable
 {
   public readonly name = 'turnstileToken';
+  public readonly id = 'turnstile-widget';
   public readonly transient = false;
 
   private stateManager: StateManager<TurnstileTokenFieldState> =

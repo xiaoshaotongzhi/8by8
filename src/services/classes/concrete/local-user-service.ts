@@ -2,7 +2,7 @@ import { injectable } from 'inversify';
 import { Subject, type Observer, type Subscription } from 'rxjs';
 import { AbstractUserService } from '../abstract/abstract-user-service';
 import type { UserType } from '@/model/enums/user-type';
-import type { Avatar } from '@/model/types/avatar.type';
+import type { Avatar } from '@/model/types/avatar';
 import type { User } from '@/model/types/user';
 
 /**

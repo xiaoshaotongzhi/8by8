@@ -44,6 +44,7 @@ export function Turnstile({ field, sitekey }: TurnstileProps) {
     <div className={styles.center_content}>
       <div className={styles.content}>
         <ReactTurnstile
+          id={field.id}
           sitekey={sitekey ?? process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
           onVerify={token => {
             field.onVerify(token);

@@ -25,6 +25,12 @@
   }
 }
 
+.input:autofill,
+.input:-webkit-autofill {
+  color: $color-black-text;
+  transition: none;
+}
+
 .show_text {
   color: $color-black-text;
 
