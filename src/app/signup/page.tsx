@@ -17,6 +17,7 @@ import { getFirstNonValidInputId } from './get-first-non-valid-input-id';
 import { focusOnElementById } from '@/utils/focus-on-element-by-id';
 import { FormInvalidError } from '@/utils/form-invalid-error';
 import styles from './styles.module.scss';
+import { scrollToElementById } from '@/utils/scroll-to-element-by-id';
 
 export default function SignUp() {
   const signUpForm = useForm(new SignUpForm());
@@ -39,7 +40,9 @@ export default function SignUp() {
 
       if (e instanceof FormInvalidError) {
         const firstNonValidInputId = getFirstNonValidInputId(signUpForm);
-        if (firstNonValidInputId) {
+        if (firstNonValidInputId === signUpForm.fields.turnstileToken.id) {
+          scrollToElementById(firstNonValidInputId);
+        } else if (firstNonValidInputId) {
           focusOnElementById(firstNonValidInputId);
         }
       } else {

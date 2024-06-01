@@ -18,6 +18,7 @@ const config = {
     '__snapshots__',
     './src/model/enums',
     './src/stories',
+    'constants',
     'fonts',
   ],
   /*

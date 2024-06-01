@@ -8,6 +8,22 @@ Currently, we are working on migrating the existing application to Next.js and T
 
 You must have Node.js version 18.17 or later installed to run the local development server.
 
+## Getting Started
+
+To run the application locally, fork the repository and clone the fork to your machine. In the terminal, navigate into the project directory and run `npm install`. Before running the local development server, you will need to create a .env file with the following contents:
+
+```
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+```
+
+Then, set this variable to one of the dummy Turnstile keys provided by Cloudflare, which can be found [here](https://developers.cloudflare.com/turnstile/troubleshooting/testing/). The .env file should now look something like this:
+
+```
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+```
+
+You can now run the local development server with the command `npm run dev`.
+
 ## Contributing
 
 New engineers should review [CONTRIBUTING.md](https://github.com/8by8-org/8by8-challenge/blob/development/CONTRIBUTING.md) for details about the recommended workflow and tools.
