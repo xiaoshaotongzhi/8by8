@@ -1,7 +1,7 @@
-import { pendingValidation } from './pending-validation';
+import { waitForPendingValidators } from './wait-for-pending-validators';
 
 /**
- * An error thrown when {@link pendingValidation} fails.
+ * An error thrown when {@link waitForPendingValidators} fails.
  */
 export class FormInvalidError extends Error {
   public readonly name = 'FormInvalidError';

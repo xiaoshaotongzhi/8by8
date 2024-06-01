@@ -12,7 +12,7 @@ import { useContextSafely } from '@/hooks/functions/use-context-safely';
 import { UserContext } from '@/contexts/user-context';
 import { UserType } from '@/model/enums/user-type';
 import { SignUpForm } from './signup-form';
-import { pendingValidation } from '@/utils/pending-validation';
+import { waitForPendingValidators } from '@/utils/wait-for-pending-validators';
 import { getFirstNonValidInputId } from './get-first-non-valid-input-id';
 import { focusOnElementById } from '@/utils/focus-on-element-by-id';
 import { FormInvalidError } from '@/utils/form-invalid-error';
@@ -31,7 +31,8 @@ export default function SignUp() {
     signUpForm.setSubmitted();
 
     try {
-      const { email, name, avatar } = await pendingValidation(signUpForm);
+      const { email, name, avatar } =
+        await waitForPendingValidators(signUpForm);
       await signUpWithEmail(email, name, avatar, UserType.Challenger);
     } catch (e) {
       setIsLoading(false);

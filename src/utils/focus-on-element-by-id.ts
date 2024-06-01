@@ -16,6 +16,8 @@
  */
 export function focusOnElementById(id: string) {
   const element = document.getElementById(id);
-  element?.removeAttribute('disabled');
-  element?.focus();
+  if (element) {
+    element.removeAttribute('disabled');
+    element.focus();
+  }
 }

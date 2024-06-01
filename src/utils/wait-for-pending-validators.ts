@@ -10,7 +10,7 @@ import { FormInvalidError } from './form-invalid-error';
  *
  * @returns A `Promise` that resolves with the value of the form, if valid.
  */
-export function pendingValidation<T extends IForm>(form: T) {
+export function waitForPendingValidators<T extends IForm>(form: T) {
   return new Promise<ValueOf<T>>((resolve, reject) => {
     if (ValidityUtils.isValid(form)) {
       resolve(form.state.value);
