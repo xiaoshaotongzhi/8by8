@@ -1,4 +1,4 @@
-import { startConfettiTimer } from "@/components/utils/confetti-animation/start-confetti-timer";
+import { startConfettiTimer } from '@/components/utils/confetti-animation/start-confetti-timer';
 
 describe('startConfettiTimer', () => {
   it('should setShowConfetti to false after delay.', async () => {
