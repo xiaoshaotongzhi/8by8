@@ -10,6 +10,9 @@ const createJestConfig = nextJest({
 const config = {
   setupFiles: ['jest-canvas-mock'],
   testEnvironment: 'jest-environment-jsdom',
+  //Provide an implementation of indexedDB for the LocalUserService class to access.
+  setupFiles: ['fake-indexeddb/auto'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   collectCoverage: true,
   //add directories here to include them in coverage reports and threshold
   collectCoverageFrom: ['./src/**'],
