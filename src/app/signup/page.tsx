@@ -113,13 +113,7 @@ export default function SignUp() {
           </p>
         </div>
         <div className={styles.submit_btn_container}>
-          <button
-            type="submit"
-            className="btn_gradient btn_lg"
-            style={{
-              width: '283px',
-            }}
-          >
+          <button type="submit" className="btn_gradient btn_lg btn_wide">
             Sign Up
           </button>
         </div>

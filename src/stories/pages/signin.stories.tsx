@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
-import SignUp from '@/app/signup/page';
+import SignIn from '@/app/signin/page';
 import { Builder } from 'builder-pattern';
 import { UserContext, UserContextType } from '@/contexts/user-context';
 import { GlobalStylesProvider } from '../global-styles-provider';
 import { Header } from '@/components/header';
 
-const meta: Meta<typeof SignUp> = {
-  component: SignUp,
+const meta: Meta<typeof SignIn> = {
+  component: SignIn,
   parameters: {
     layout: 'fullscreen',
   },
@@ -14,12 +14,12 @@ const meta: Meta<typeof SignUp> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SignUp>;
+type Story = StoryObj<typeof SignIn>;
 
 export const Default: Story = {
   render: () => {
     const userContextValue = Builder<UserContextType>()
-      .signUpWithEmail(() => {
+      .signInWithEmail(() => {
         throw new Error();
       })
       .build();
@@ -28,7 +28,7 @@ export const Default: Story = {
       <GlobalStylesProvider>
         <UserContext.Provider value={userContextValue}>
           <Header />
-          <SignUp />
+          <SignIn />
         </UserContext.Provider>
       </GlobalStylesProvider>
     );

@@ -64,7 +64,9 @@ class SignUpTemplate extends FormTemplate {
     }),
   ] as const;
 
-  public readonly autoTrim = true;
+  public readonly autoTrim = {
+    exclude: ['turnstileToken'],
+  };
 }
 
 export const SignUpForm = FormFactory.createForm(SignUpTemplate);
