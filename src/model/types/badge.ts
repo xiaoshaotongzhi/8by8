@@ -1,5 +1,5 @@
-import { Actions } from '../enums/actions';
-import { Avatar } from './avatar.type';
+import type { ActionBadge } from './action-badge';
+import type { PlayerBadge } from './player-badge';
 
 /**
  * Represents a badge awarded to the user either through their own actions, or
@@ -10,11 +10,4 @@ import { Avatar } from './avatar.type';
  * to vote and sharing the challenger. Signing up for election reminders does
  * not grant the user a badge.
  */
-export type Badge =
-  | {
-      action: Actions.VoterRegistration | Actions.SharedChallenge;
-    }
-  | {
-      playerName: string;
-      playerAvatar: Avatar;
-    };
+export type Badge = ActionBadge | PlayerBadge;

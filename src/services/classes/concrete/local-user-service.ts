@@ -124,4 +124,11 @@ export class LocalUserService extends AbstractUserService {
   ): Subscription {
     return this.userSubject.subscribe(observerOrNext);
   }
+
+  /*
+    TODO : Implement restartChallenge.
+  */
+  restartChallenge(): void {
+    throw new Error('Method not implemented.');
+  }
 }

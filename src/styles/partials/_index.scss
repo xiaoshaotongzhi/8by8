@@ -9,6 +9,7 @@
 @forward "variables/page-widths" as page-width-*;
 @forward "variables/spacings" as spacing-*;
 
+@forward "mixins/media-queries" as media-query-*;
 @forward "mixins/z-indices" as z-index-*;
 
 @forward "classes/utils/color-utils" as color-util-*;
