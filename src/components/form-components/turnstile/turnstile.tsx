@@ -2,7 +2,6 @@ import ReactTurnstile from 'react-turnstile';
 import { useSubmitted } from 'fully-formed';
 import { TurnstileTokenField } from './turnstile-token-field';
 import { Messages } from '../messages';
-import { DummySiteKeys } from '@/constants/dummy-site-keys';
 import styles from './styles.module.scss';
 
 interface TurnstileProps {

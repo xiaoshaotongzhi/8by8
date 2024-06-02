@@ -11,7 +11,7 @@ describe('LocalUserService', () => {
       userService.signUpWithEmail(
         'user@example.com',
         'user',
-        1,
+        '1',
         UserType.Challenger,
       ),
     ).toThrow();

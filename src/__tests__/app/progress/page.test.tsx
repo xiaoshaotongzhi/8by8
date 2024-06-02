@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { mockDialogMethods } from '@/testing-utils/mock-dialog-methods';
 import Progress from '@/app/progress/page';
 import { UserType } from '@/model/enums/user-type';
-import { UserContext } from '@/contexts/user-context';
+import { UserContext, UserContextType } from '@/contexts/user-context';
 import type { User } from '@/model/types/user';
 import { DateTime } from 'luxon';
 import { Actions } from '@/model/enums/actions';
@@ -17,7 +17,7 @@ describe('ProgressTest', () => {
     uid: '456',
     email: 'challenger2@example.com',
     name: 'Challenger2',
-    avatar: 2,
+    avatar: '2',
     type: UserType.Challenger,
     completedActions: {
       sharedChallenge: true,
@@ -26,7 +26,7 @@ describe('ProgressTest', () => {
     },
     badges: [
       { action: Actions.SharedChallenge },
-      { playerName: 'Player', playerAvatar: 1 },
+      { playerName: 'Player', playerAvatar: '1' },
     ],
     challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
     completedChallenge: true,
@@ -37,7 +37,7 @@ describe('ProgressTest', () => {
 
   it('renders user with 2 badges, completedChallenge: true, redeemedAward:false, registerToVote: false', () => {
     render(
-      <UserContext.Provider value={{ user }}>
+      <UserContext.Provider value={{ user } as UserContextType}>
         <Progress />
       </UserContext.Provider>,
     );
@@ -59,7 +59,7 @@ describe('ProgressTest', () => {
     user.redeemedAward = true;
 
     render(
-      <UserContext.Provider value={{ user }}>
+      <UserContext.Provider value={{ user } as UserContextType}>
         <Progress />
       </UserContext.Provider>,
     );
@@ -74,7 +74,7 @@ describe('ProgressTest', () => {
       .toFormat('MM-dd-yyyy');
 
     render(
-      <UserContext.Provider value={{ user }}>
+      <UserContext.Provider value={{ user } as UserContextType}>
         <Progress />
       </UserContext.Provider>,
     );
@@ -87,7 +87,7 @@ describe('ProgressTest', () => {
     user.challengeEndDate = DateTime.now().toFormat('MM-dd-yyyy');
 
     render(
-      <UserContext.Provider value={{ user }}>
+      <UserContext.Provider value={{ user } as UserContextType}>
         <Progress />
       </UserContext.Provider>,
     );
@@ -103,11 +103,11 @@ describe('ProgressTest', () => {
 
   it('renders user when all badges are completed.', () => {
     for (let i = 2; i < 8; i++) {
-        user.badges[i] = { playerName: `test${i}`, playerAvatar: 1 };
+      user.badges[i] = { playerName: `test${i}`, playerAvatar: '1' };
     }
 
     render(
-      <UserContext.Provider value={{ user }}>
+      <UserContext.Provider value={{ user } as UserContextType}>
         <Progress />
       </UserContext.Provider>,
     );

@@ -6,7 +6,7 @@ describe('scrollToElementById', () => {
 
   test(`If an element with the provided id exists in the document, 
   window.scrollTo() is called with the offsetTop of the element.`, () => {
-    jest.spyOn(window, 'scrollTo');
+    jest.spyOn(window, 'scrollTo').mockImplementation(jest.fn());
     const id = 'test-id';
     render(<div id={id} data-testid={id}></div>);
     scrollToElementById(id);

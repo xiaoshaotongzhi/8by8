@@ -7,6 +7,7 @@ interface ReactTurnstileProps {
   onBeforeInteractive?: () => void;
   onExpire?: () => void;
   onError?: () => void;
+  id?: string;
 }
 
 export const DUMMY_TOKEN = 'XXXX.DUMMY.TOKEN.XXXX';
@@ -23,6 +24,7 @@ export function MockReactTurnstile({
   onBeforeInteractive,
   onExpire,
   onError,
+  id,
 }: ReactTurnstileProps) {
   const [showChallenge, setShowChallenge] = useState(false);
 
@@ -60,14 +62,16 @@ export function MockReactTurnstile({
   }, [sitekey, onVerify, onError, onBeforeInteractive, onExpire]);
 
   return (
-    showChallenge && (
-      <button
-        type="button"
-        data-testid={CHALLENGE_BTN_TEST_ID}
-        onClick={() => {
-          onVerify && onVerify(DUMMY_TOKEN);
-        }}
-      ></button>
-    )
+    <div id={id}>
+      {showChallenge && (
+        <button
+          type="button"
+          data-testid={CHALLENGE_BTN_TEST_ID}
+          onClick={() => {
+            onVerify && onVerify(DUMMY_TOKEN);
+          }}
+        ></button>
+      )}
+    </div>
   );
 }

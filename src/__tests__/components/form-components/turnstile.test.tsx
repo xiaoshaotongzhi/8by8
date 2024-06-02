@@ -9,7 +9,6 @@ import {
   CHALLENGE_BTN_TEST_ID,
 } from '@/testing-utils/mock-react-turnstile';
 import { Turnstile } from '@/components/form-components/turnstile';
-import { delay } from '@/utils/delay';
 
 jest.mock('react-turnstile', () => MockReactTurnstile);
 

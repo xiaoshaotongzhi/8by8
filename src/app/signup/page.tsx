@@ -2,22 +2,22 @@
 import { useState, type FormEventHandler } from 'react';
 import { useForm } from 'fully-formed';
 import Link from 'next/link';
+import { useContextSafely } from '@/hooks/functions/use-context-safely';
+import { UserContext } from '@/contexts/user-context';
+import { UserType } from '@/model/enums/user-type';
+import { SignUpForm } from './signup-form';
 import { PageContainer } from '@/components/utils/page-container';
 import { InputGroup } from '@/components/form-components/input-group';
 import { SelectAvatar } from './select-avatar';
 import { LoadingWheel } from '@/components/utils/loading-wheel';
 import { Turnstile } from '@/components/form-components/turnstile/turnstile';
 import { SubmissionError } from '@/components/form-components/submission-error';
-import { useContextSafely } from '@/hooks/functions/use-context-safely';
-import { UserContext } from '@/contexts/user-context';
-import { UserType } from '@/model/enums/user-type';
-import { SignUpForm } from './signup-form';
 import { waitForPendingValidators } from '@/utils/wait-for-pending-validators';
 import { getFirstNonValidInputId } from './get-first-non-valid-input-id';
 import { focusOnElementById } from '@/utils/focus-on-element-by-id';
+import { scrollToElementById } from '@/utils/scroll-to-element-by-id';
 import { FormInvalidError } from '@/utils/form-invalid-error';
 import styles from './styles.module.scss';
-import { scrollToElementById } from '@/utils/scroll-to-element-by-id';
 
 export default function SignUp() {
   const signUpForm = useForm(new SignUpForm());
@@ -57,7 +57,7 @@ export default function SignUp() {
         <SubmissionError text="Something went wrong. Please try again." />
       )}
       {isLoading && <LoadingWheel />}
-      <form onSubmit={onSubmit} noValidate>
+      <form onSubmit={onSubmit} noValidate name="signUpForm">
         <div className={styles.title_and_fields_container}>
           <h1 className={styles.title}>
             <span className="underline">Sign Up</span>
