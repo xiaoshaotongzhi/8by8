@@ -14,7 +14,7 @@ describe('LocalUserService', () => {
       userService.signUpWithEmail(
         'user@example.com',
         'user',
-        1,
+        '0',
         UserType.Challenger,
       ),
     ).resolves.toBeUndefined();
