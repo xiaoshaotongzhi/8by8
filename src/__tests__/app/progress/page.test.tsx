@@ -8,6 +8,7 @@ import type { User } from '@/model/types/user';
 import { DateTime } from 'luxon';
 import { Actions } from '@/model/enums/actions';
 import userEvent from '@testing-library/user-event';
+import { getErrorThrownByComponent } from '@/testing-utils/get-error-thrown-by-component';
 
 describe('ProgressTest', () => {
   mockDialogMethods();
@@ -113,5 +114,14 @@ describe('ProgressTest', () => {
     );
 
     expect(screen.getByText(/You completed all/i)).toBeInTheDocument();
+  });
+
+  it('renders without error if user is null.', () => {
+    const error = getErrorThrownByComponent(
+      <UserContext.Provider value={{ user: null } as UserContextType}>
+        <Progress />
+      </UserContext.Provider>,
+    );
+    expect(error).toBe(null);
   });
 });
