@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 import type { User } from '@/model/types/user';
-import type { Avatar } from '@/model/types/avatar.type';
+import type { Avatar } from '@/model/types/avatar';
 import type { UserType } from '@/model/enums/user-type';
 import type { Observer, Subscription } from 'rxjs';
 
@@ -26,4 +26,5 @@ export abstract class AbstractUserService {
       | Partial<Observer<User | null>>
       | ((user: User | null) => void),
   ): Subscription;
+  public abstract restartChallenge(): void;
 }

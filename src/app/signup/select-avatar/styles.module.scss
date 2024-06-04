@@ -1,0 +1,19 @@
+@use '../../../styles/partials' as *;
+
+.radio_group {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: $spacing-md;
+}
+
+.radio_buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.legend {
+  @extend .h2;
+  @extend .underline;
+  margin: 0 $spacing-vertical-gutter $spacing-sm;
+}
