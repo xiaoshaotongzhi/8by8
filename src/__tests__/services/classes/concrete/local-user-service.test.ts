@@ -10,25 +10,31 @@ describe('LocalUserService', () => {
   });
 
   test('It successfully signs up a new user with valid data', async () => {
-    await expect(userService.signUpWithEmail(
-      'user@example.com',
-      'user',
-      1,
-      UserType.Challenger,
-    )).resolves.toBeUndefined();
+    await expect(
+      userService.signUpWithEmail(
+        'user@example.com',
+        'user',
+        '0',
+        UserType.Challenger,
+      ),
+    ).resolves.toBeUndefined();
 
     // Additional assertions can be made to check if the user is correctly set, etc.
   });
 
   test('It successfully signs in an existing user with valid email', async () => {
     // Assuming a user with email 'user@example.com' exists in the database
-    await expect(userService.signInWithEmail('user@example.com')).resolves.toBeUndefined();
+    await expect(
+      userService.signInWithEmail('user@example.com'),
+    ).resolves.toBeUndefined();
 
     // Additional assertions can be made to check if the user is correctly set, etc.
   });
 
   test('It throws an error when signing in with an invalid email', async () => {
-    await expect(userService.signInWithEmail('nonexistent@example.com')).rejects.toThrow('User not found');
+    await expect(
+      userService.signInWithEmail('nonexistent@example.com'),
+    ).rejects.toThrow('User not found');
   });
 
   test('It successfully signs out a signed-in user', async () => {

@@ -1,4 +1,4 @@
-import { Avatar } from './avatar.type';
+import { Avatar } from './avatar';
 
 /**
  * Represents a badge awarded to the user due to an action taken by a player they invited.

@@ -1,10 +1,5 @@
 import '@testing-library/jest-dom';
-import {
-    render,
-    screen,
-    cleanup,
-    waitFor,
-} from '@testing-library/react';
+import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import navigation from 'next/navigation';
@@ -16,135 +11,134 @@ import { UserType } from '@/model/enums/user-type';
 import { useState } from 'react';
 
 jest.mock('next/navigation', () => ({
-    useRouter: jest.fn()
+  useRouter: jest.fn(),
 }));
 
 describe('Authguard', () => {
-    let router: AppRouterInstance;
+  let router: AppRouterInstance;
 
-    beforeEach(() => {
-        router = Builder<AppRouterInstance>().push(jest.fn()).build();
-        jest.spyOn(navigation, 'useRouter').mockImplementation(() => router)
-    });
+  beforeEach(() => {
+    router = Builder<AppRouterInstance>().push(jest.fn()).build();
+    jest.spyOn(navigation, 'useRouter').mockImplementation(() => router);
+  });
 
-    afterEach(cleanup);
+  afterEach(cleanup);
 
-    it('renders a child component', () => {
-        const user: User = {
-            uid: '',
-            email: '',
-            name: '',
-            avatar: 2,
-            type: UserType.Challenger,
-            completedActions: {
-                electionReminders: false,
-                registerToVote: false,
-                sharedChallenge: false
-            },
-            badges: [],
-            challengeEndDate: '',
-            completedChallenge: false,
-            redeemedAward: false,
-            contributedTo: [],
-            shareCode: ''
-        };
-        const userContextValue = Builder<UserContextType>().user(user).build();
-        render(
-            <UserContext.Provider value={userContextValue}>
-                <AuthGuard>
-                    <div data-testid="test"></div>
-                </AuthGuard>
-            </UserContext.Provider>
-        );
-        expect(screen.queryByTestId('test')).toBeInTheDocument();
-    })
+  it('renders a child component', () => {
+    const user: User = {
+      uid: '',
+      email: '',
+      name: '',
+      avatar: '2',
+      type: UserType.Challenger,
+      completedActions: {
+        electionReminders: false,
+        registerToVote: false,
+        sharedChallenge: false,
+      },
+      badges: [],
+      challengeEndDate: '',
+      completedChallenge: false,
+      redeemedAward: false,
+      contributedTo: [],
+      shareCode: '',
+    };
+    const userContextValue = Builder<UserContextType>().user(user).build();
+    render(
+      <UserContext.Provider value={userContextValue}>
+        <AuthGuard>
+          <div data-testid="test"></div>
+        </AuthGuard>
+      </UserContext.Provider>,
+    );
+    expect(screen.queryByTestId('test')).toBeInTheDocument();
+  });
 
-    it('calls signin page', () => {
-        const userContextValue = Builder<UserContextType>().user(null).build();
+  it('calls signin page', () => {
+    const userContextValue = Builder<UserContextType>().user(null).build();
 
-        render(
-            <UserContext.Provider value={userContextValue}>
-                <AuthGuard />
-            </UserContext.Provider>
-        );
+    render(
+      <UserContext.Provider value={userContextValue}>
+        <AuthGuard />
+      </UserContext.Provider>,
+    );
 
-        expect(router.push).toHaveBeenCalledWith('/signin');
-    })
+    expect(router.push).toHaveBeenCalledWith('/signin');
+  });
 
-    it('does not call signin page', () => {
-        const user: User = {
-            uid: '',
-            email: '',
-            name: '',
-            avatar: 2,
-            type: UserType.Challenger,
-            completedActions: {
-                electionReminders: false,
-                registerToVote: false,
-                sharedChallenge: false
-            },
-            badges: [],
-            challengeEndDate: '',
-            completedChallenge: false,
-            redeemedAward: false,
-            contributedTo: [],
-            shareCode: ''
-        };
+  it('does not call signin page', () => {
+    const user: User = {
+      uid: '',
+      email: '',
+      name: '',
+      avatar: '2',
+      type: UserType.Challenger,
+      completedActions: {
+        electionReminders: false,
+        registerToVote: false,
+        sharedChallenge: false,
+      },
+      badges: [],
+      challengeEndDate: '',
+      completedChallenge: false,
+      redeemedAward: false,
+      contributedTo: [],
+      shareCode: '',
+    };
 
-        const userContextValue = Builder<UserContextType>().user(user).build();
-        render(
-            <UserContext.Provider value={userContextValue}>
-                <AuthGuard />
-            </UserContext.Provider>
-        );
-        expect(router.push).not.toHaveBeenCalled();
-    })
+    const userContextValue = Builder<UserContextType>().user(user).build();
+    render(
+      <UserContext.Provider value={userContextValue}>
+        <AuthGuard />
+      </UserContext.Provider>,
+    );
+    expect(router.push).not.toHaveBeenCalled();
+  });
 
-    it('redirects the user', async () => {
-        function TestComponent() {
+  it('redirects the user', async () => {
+    function TestComponent() {
+      const [user, setUser] = useState<User | null>({
+        uid: '',
+        email: '',
+        name: '',
+        avatar: '2',
+        type: UserType.Challenger,
+        completedActions: {
+          electionReminders: false,
+          registerToVote: false,
+          sharedChallenge: false,
+        },
+        badges: [],
+        challengeEndDate: '',
+        completedChallenge: false,
+        redeemedAward: false,
+        contributedTo: [],
+        shareCode: '',
+      });
 
-            const [user, setUser] = useState<User | null>(
-                {
-                    uid: '',
-                    email: '',
-                    name: '',
-                    avatar: 2,
-                    type: UserType.Challenger,
-                    completedActions: {
-                        electionReminders: false,
-                        registerToVote: false,
-                        sharedChallenge: false
-                    },
-                    badges: [],
-                    challengeEndDate: '',
-                    completedChallenge: false,
-                    redeemedAward: false,
-                    contributedTo: [],
-                    shareCode: ''
-                }
-            );
+      const signout = () => setUser(null);
 
-            const signout = () => setUser(null);
+      const UserContextValue = Builder<UserContextType>().user(user).build();
 
-            const UserContextValue = Builder<UserContextType>().user(user).build();
+      return (
+        <UserContext.Provider value={UserContextValue}>
+          <AuthGuard>
+            <button onClick={signout}>Sign out</button>
+          </AuthGuard>
+        </UserContext.Provider>
+      );
+    }
 
-            return < UserContext.Provider value={UserContextValue}>
-                <AuthGuard>
-                    <button onClick={signout}>Sign out</button>
-                </AuthGuard>
-            </UserContext.Provider>
-        }
+    const user = userEvent.setup();
+    render(<TestComponent />);
 
-        const user = userEvent.setup();
-        render(
-            <TestComponent />
-        )
+    expect(router.push).not.toHaveBeenCalled();
 
-        expect(router.push).not.toHaveBeenCalled();
+    const button = screen.getByText('Sign out');
 
-        const button = screen.getByText('Sign out');
-
-        await user.click(button);
-        await waitFor(() => expect(router.push).toHaveBeenLastCalledWith('/signin'));
-    });
+    await user.click(button);
+    await waitFor(() =>
+      expect(router.push).toHaveBeenLastCalledWith('/signin'),
+    );
+  });
 });

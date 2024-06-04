@@ -8,10 +8,9 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
 const config = {
-  setupFiles: ['jest-canvas-mock'],
   testEnvironment: 'jest-environment-jsdom',
   //Provide an implementation of indexedDB for the LocalUserService class to access.
-  setupFiles: ['fake-indexeddb/auto'],
+  setupFiles: ['jest-canvas-mock', 'fake-indexeddb/auto'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   collectCoverage: true,
   //add directories here to include them in coverage reports and threshold
@@ -21,6 +20,7 @@ const config = {
     '__snapshots__',
     './src/model/enums',
     './src/stories',
+    'constants',
     'fonts',
   ],
   /*

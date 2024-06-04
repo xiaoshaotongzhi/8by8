@@ -2,7 +2,7 @@ import { render, cleanup } from '@testing-library/react';
 import { mockDialogMethods } from '@/testing-utils/mock-dialog-methods';
 import Progress from '@/app/progress/page';
 import { UserType } from '@/model/enums/user-type';
-import { UserContext } from '@/contexts/user-context';
+import { UserContext, UserContextType } from '@/contexts/user-context';
 import type { User } from '@/model/types/user';
 
 describe('Progress', () => {
@@ -14,7 +14,7 @@ describe('Progress', () => {
       uid: '123',
       email: 'challenger1@example.com',
       name: 'Challenger1',
-      avatar: 1,
+      avatar: '1',
       type: UserType.Challenger,
       completedActions: {
         sharedChallenge: false,
@@ -30,7 +30,7 @@ describe('Progress', () => {
     };
 
     const { container } = render(
-      <UserContext.Provider value={{ user }}>
+      <UserContext.Provider value={{ user } as UserContextType}>
         <Progress />
       </UserContext.Provider>,
     );
