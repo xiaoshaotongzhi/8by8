@@ -1,0 +1,36 @@
+@use '../../styles/partials' as *;
+
+.title_and_fields_container {
+  margin-top: $spacing-md;
+  padding-left: $spacing-vertical-gutter;
+  padding-right: $spacing-vertical-gutter;
+}
+
+.hero {
+  height: 200px;
+  position: relative;
+}
+
+.person_voting {
+  position: absolute;
+  bottom: 0;
+  right: $spacing-vertical-gutter;
+}
+
+.input_group {
+  margin-bottom: 14px;
+}
+
+.submit_btn_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-sm;
+  padding-left: $spacing-vertical-gutter;
+  padding-right: $spacing-vertical-gutter;
+}
+
+.sign_up_link_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-lg;
+}
