@@ -4,12 +4,12 @@ import type { Avatar } from '@/model/types/avatar';
 import type { UserType } from '@/model/enums/user-type';
 import type { Observer, Subscription } from 'rxjs';
 
-/*
-  By using abstract classes to define the shape of our service classes, we will
-  be able to test that providers of service classes provide instances of
-  specific services, which would be difficult to test if we used interfaces
-  for this purpose.
-*/
+/**
+ * A client-side service class that provides methods for signing up, signing in,
+ * signing out, and other actions directly related to the user. Maintains the
+ * currently active user in its `user` property and emits events to subscribers
+ * when the user changes.
+ */
 @injectable()
 export abstract class AbstractUserService {
   public abstract user: User | null;

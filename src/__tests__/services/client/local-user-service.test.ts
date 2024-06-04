@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { UserType } from '@/model/enums/user-type';
-import { LocalUserService } from '@/services/classes/concrete/local-user-service';
+import { LocalUserService } from '@/services/client/local-user-service';
 import { Subscription } from 'rxjs';
 describe('LocalUserService', () => {
   let userService: LocalUserService;

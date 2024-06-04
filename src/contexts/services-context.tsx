@@ -1,8 +1,8 @@
 'use client';
-import { servicesContainer } from '@/services/services-container';
+import { clientServicesContainer } from '@/services/client/client-services-container';
+import { CLIENT_SERVICE_KEYS } from '@/services/client/client-service-keys';
 import { createNamedContext } from '@/hooks/functions/create-named-context';
-import { TYPES } from '@/services/types';
-import type { AbstractUserService } from '@/services/classes/abstract/abstract-user-service';
+import type { AbstractUserService } from '@/services/client/abstract-user-service';
 import type { PropsWithChildren } from 'react';
 
 interface ServicesContextType {
@@ -13,8 +13,8 @@ export const ServicesContext =
   createNamedContext<ServicesContextType>('ServicesContext');
 
 export function ServicesContextProvider({ children }: PropsWithChildren) {
-  const userService = servicesContainer.get<AbstractUserService>(
-    TYPES.UserService,
+  const userService = clientServicesContainer.get<AbstractUserService>(
+    CLIENT_SERVICE_KEYS.UserService,
   );
 
   return (

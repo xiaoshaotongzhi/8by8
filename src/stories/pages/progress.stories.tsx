@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import Progress from '@/app/progress/page';
-import { UserContext, UserContextType } from '../../contexts/user-context';
+import {
+  UserContext,
+  UserContextType,
+} from '../../contexts/user-context/user-context';
 import { UserType } from '../../model/enums/user-type';
 import type { User } from '../../model/types/user';
 import { GlobalStylesProvider } from '../global-styles-provider';

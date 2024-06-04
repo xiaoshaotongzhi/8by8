@@ -77,7 +77,9 @@ export function Input({
       classNames.push(styles.show_text);
     }
 
-    const validity = ValidityUtils.minValidity(states);
+    const validity = ValidityUtils.minValidity(states, {
+      pruneUnvalidatedGroups: true,
+    });
 
     if (
       ValidityUtils.isInvalid(validity) &&
