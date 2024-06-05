@@ -9,7 +9,8 @@ const createJestConfig = nextJest({
 /** @type {import('jest').Config} */
 const config = {
   testEnvironment: 'jest-environment-jsdom',
-  //Provide an implementation of indexedDB for the LocalUserService class to access.
+  // Provide an implementation of indexedDB for the LocalUserContextProvider
+  // to access.
   setupFiles: ['jest-canvas-mock', 'fake-indexeddb/auto'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   collectCoverage: true,
@@ -22,18 +23,13 @@ const config = {
     './src/stories',
     'constants',
     'fonts',
+    './src/services',
   ],
-  /*
-    TODO : remove 'local-user-service.ts' once it is implemented. Then, tests
-    can be added for 'user-context.tsx' and it can be removed from this array
-    as well.
-  */
   coveragePathIgnorePatterns: [
     'index.ts',
     'index.tsx',
     'layout.tsx',
-    'local-user-service.ts',
-    'user-context.tsx',
+    'idb-connection.ts',
   ],
   //require 100% code coverage for the tests to pass
   coverageThreshold: {

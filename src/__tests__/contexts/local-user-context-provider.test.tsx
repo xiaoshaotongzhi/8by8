@@ -1,22 +1,23 @@
-import {
-  render,
-  screen,
-  cleanup,
-  waitFor,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { LocalUserContextProvider, UserContext } from '@/contexts/user-context';
 import { UserType } from '@/model/enums/user-type';
 import { IDBFactory } from 'fake-indexeddb';
 import { useContextSafely } from '@/hooks/functions/use-context-safely';
-import { connectToIndexedDB } from '@/utils/connect-to-indexed-db';
+import { IDBConnection } from '@/utils/idb-connection';
 import { useEffect, useRef, useState } from 'react';
+import { getErrorThrownByComponent } from '@/testing-utils/get-error-thrown-by-component';
 
 describe('LocalUserContextProvider', () => {
+  let db: IDBConnection;
+  beforeEach(async () => {
+    db = await IDBConnection.createConnection('8by8', 1, 'users', 'email');
+  });
+
   afterEach(() => {
     cleanup();
+    db.close();
     indexedDB = new IDBFactory();
   });
 
@@ -53,10 +54,10 @@ describe('LocalUserContextProvider', () => {
 
     const signUpButton = screen.getByText('Sign Up');
     await user.click(signUpButton);
-    await waitForElementToBeRemoved(signUpButton);
-
-    const db = await connectToIndexedDB('8by8', 1, 'users', 'email');
-    const appUser = await db.get('user@example.com');
+    await waitFor(() =>
+      expect(screen.queryByText('Sign Up')).not.toBeInTheDocument(),
+    );
+    const appUser = await db.read('user@example.com');
 
     expect(appUser).toStrictEqual({
       email: 'user@example.com',
@@ -81,8 +82,7 @@ describe('LocalUserContextProvider', () => {
   it(`throws an error when signUpWithEmail() is called with an email that 
   already exists in the database.`, async () => {
     const existingEmail = 'user@example.com';
-    const db = await connectToIndexedDB('8by8', 1, 'users', 'email');
-    await db.add({
+    await db.create({
       email: existingEmail,
       name: 'user',
       avatar: '0',
@@ -150,8 +150,7 @@ describe('LocalUserContextProvider', () => {
   });
 
   it('successfully signs in an existing user with valid email', async () => {
-    const db = await connectToIndexedDB('8by8', 1, 'users', 'email');
-    await db.add({
+    await db.create({
       email: 'user@example.com',
       name: 'user',
       avatar: '0',
@@ -227,9 +226,6 @@ describe('LocalUserContextProvider', () => {
 
   it('throws an error when signing in with an invalid email', async () => {
     const invalidEmail = 'nonexistent@example.com';
-
-    // user with email "nonexistent@example.com" should not exist in the database
-    const db = await connectToIndexedDB('8by8', 1, 'users', 'email');
     const count = await db.count(invalidEmail);
     expect(count).toBe(0);
 
@@ -276,27 +272,72 @@ describe('LocalUserContextProvider', () => {
     );
   });
 
-  // it('successfully signs out a signed-in user', async () => {
-  //   // Assuming a user is signed in before signing out
-  //   await userService.signInWithEmail('user@example.com');
+  it('successfully signs out a signed-in user', async () => {
+    function SignUpSignOut() {
+      const { user, signUpWithEmail, signOut } = useContextSafely(
+        UserContext,
+        'SignUpButton',
+      );
 
-  //   userService.signOut();
+      return user ?
+          <button onClick={signOut}>Sign Out</button>
+        : <button
+            onClick={() => {
+              signUpWithEmail(
+                'user@example.com',
+                'user',
+                '0',
+                UserType.Challenger,
+              );
+            }}
+          >
+            Sign Up
+          </button>;
+    }
 
-  //   expect(userService.user).toBeNull();
-  // });
+    const user = userEvent.setup();
 
-  // test('It throws an error when signing out without a signed-in user', () => {
-  //   expect(() => userService.signOut()).not.toThrow(); // No error expected when signing out without a signed-in user
-  // });
+    render(
+      <LocalUserContextProvider>
+        <SignUpSignOut />
+      </LocalUserContextProvider>,
+    );
 
-  // test('When its subscribe() method is called, an RxJS Subscription is returned.', () => {
-  //   const subscription = userService.subscribe(() => {});
-  //   expect(subscription).toBeInstanceOf(Subscription);
-  // });
-  // //original version I store it.
-  // test('When its subscribe() method is called, an RxJS Subscription is returned.', () => {
-  //   const userService = new LocalUserService();
-  //   const subscription = userService.subscribe(() => {});
-  //   expect(subscription).toBeInstanceOf(Subscription);
-  // });
+    const signUpButton = screen.getByText('Sign Up');
+    await user.click(signUpButton);
+    await waitFor(() =>
+      expect(screen.queryByText('Sign Up')).not.toBeInTheDocument(),
+    );
+
+    const signOutButton = screen.getByText('Sign Out');
+    await user.click(signOutButton);
+    await waitFor(() =>
+      expect(screen.queryByText('Sign Out')).not.toBeInTheDocument(),
+    );
+  });
+
+  it('throws an error when restartChallenge() is called.', () => {
+    function RestartChallenge() {
+      const { restartChallenge } = useContextSafely(
+        UserContext,
+        'SignUpButton',
+      );
+
+      useEffect(() => {
+        restartChallenge();
+      }, [restartChallenge]);
+
+      return null;
+    }
+
+    const error = getErrorThrownByComponent(
+      <LocalUserContextProvider>
+        <RestartChallenge />
+      </LocalUserContextProvider>,
+    );
+
+    expect(error).toBeTruthy();
+    expect(error).toBeInstanceOf(Error);
+    expect(error?.message).toBe('Method not implemented.');
+  });
 });

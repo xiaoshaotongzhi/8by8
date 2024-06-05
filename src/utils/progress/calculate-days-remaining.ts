@@ -1,9 +1,6 @@
 import { DateTime } from 'luxon';
 import type { User } from '@/model/types/user';
 
-// Probably best to store datetime in millis, TZ differences can be weird
-// between server and client otherwise
-
 /**
  * Calculates the days remaining left in the challenge with a maximum of 8 days and returns 0 if user or user's end date is null.
  *

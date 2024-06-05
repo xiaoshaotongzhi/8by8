@@ -2,7 +2,7 @@
 import { useState, type PropsWithChildren } from 'react';
 import { DateTime } from 'luxon';
 import { UserContext } from './user-context';
-import { connectToIndexedDB } from '@/utils/connect-to-indexed-db';
+import { IDBConnection } from '@/utils/idb-connection';
 import type { User } from '@/model/types/user';
 import type { Avatar } from '@/model/types/avatar';
 import type { UserType } from '@/model/enums/user-type';
@@ -16,13 +16,27 @@ export function LocalUserContextProvider({ children }: PropsWithChildren) {
   const dbName = '8by8';
   const storeName = 'users';
 
+  /**
+   * Creates a connection to IndexedDB and attempts to save a new user. Throws
+   * an error if a user with the provided email already exists in the database.
+   *
+   * @param email - The user's email address.
+   * @param name - The user's display name.
+   * @param avatar - The index of the Avatar that the user has selected.
+   * @param type - The user's type: `"challenger" | "player" | "hybrid"`
+   */
   const signUpWithEmail = async (
     email: string,
     name: string,
     avatar: Avatar,
     type: UserType,
   ): Promise<void> => {
-    const db = await connectToIndexedDB(dbName, 1, storeName, 'email');
+    const db = await IDBConnection.createConnection(
+      dbName,
+      1,
+      storeName,
+      'email',
+    );
 
     const userCount = await db.count(email);
     if (userCount > 0)
@@ -47,23 +61,43 @@ export function LocalUserContextProvider({ children }: PropsWithChildren) {
       shareCode: 'default-share-code',
     };
 
-    await db.add(newUser);
-
+    await db.create(newUser);
     setUser(newUser);
+    db.close();
   };
 
+  /**
+   * Creates a connection to IndexedDB and attempts to retrieve a user with the
+   * provided email address. Throws an error if the user was not found.
+   *
+   * @param email - The user's email address.
+   */
   const signInWithEmail = async (email: string): Promise<void> => {
-    const db = await connectToIndexedDB(dbName, 1, storeName, 'email');
-    const userDoc = await db.get(email);
+    const db = await IDBConnection.createConnection(
+      dbName,
+      1,
+      storeName,
+      'email',
+    );
+    const userDoc = await db.read(email);
     if (!userDoc) throw new Error(`User with email ${email} does not exist.`);
 
     setUser(userDoc as User);
+    db.close();
   };
 
+  /**
+   * Signs the user out by setting user to null.
+   */
   const signOut = (): void => {
     setUser(null);
   };
 
+  /*
+    TODO - Implement this as an asynchronous method that updates the user's 
+    data in IndexedDB with a new end date, and then calls setUser() with the 
+    updated data, provided user has not become null.
+  */
   const restartChallenge = (): void => {
     throw new Error('Method not implemented.');
   };
