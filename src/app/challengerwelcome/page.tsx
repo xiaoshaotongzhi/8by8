@@ -1,39 +1,26 @@
 'use client';
 import { PageContainer } from '@/components/utils/page-container';
-import { RewardsContext } from '@/contexts/rewards-context';
-import { UserContext } from '@/contexts/user-context';
-import { useContextSafely } from '@/hooks/functions/use-context-safely';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useContext, useEffect, useState } from 'react';
-import Top from '../../../public/static/images/pages/challenger-welcome/black-curve-lg.png';
-import StepOne from '../../../public/static/images/pages/challenger-welcome/step-1.png';
-import StepTwo from '../../../public/static/images/pages/challenger-welcome/step-2.png';
-import StepThree from '../../../public/static/images/pages/challenger-welcome/step-3.png';
-import StepFour from '../../../public/static/images/pages/challenger-welcome/step-4.png';
-import Logo from '../../../public/static/images/shared/8by8-logo.svg';
+import top from '../../../public/static/images/pages/challenger-welcome/black-curve-lg.png';
+import stepOne from '../../../public/static/images/pages/challenger-welcome/step-1.png';
+import stepTwo from '../../../public/static/images/pages/challenger-welcome/step-2.png';
+import stepThree from '../../../public/static/images/pages/challenger-welcome/step-3.png';
+import stepFour from '../../../public/static/images/pages/challenger-welcome/step-4.png';
+import logo from '../../../public/static/images/shared/8by8-logo.svg';
 import styles from './styles.module.scss';
 
 function ChallengerWelcome() {
   const router = useRouter();
-  const userContext = useContextSafely(UserContext, 'ChallengerWelcome');
-  const { rewards } = useContext(RewardsContext);
-
-  const [rewardsAvailable, setRewardsAvailable] = useState<boolean>(
-    rewards.some(r => r.rewardAvailable),
-  );
-  useEffect(() => {
-    sessionStorage.setItem('UserType', 'Challenger');
-  }, []);
 
   return (
     <PageContainer>
       <section className={styles.section_1}>
-        <Image className={styles.background} src={Top} alt="background" />
+        <Image className={styles.background} src={top} alt="background" />
 
         <div className={styles.container}>
-          <Image className={styles.logo} src={Logo} alt="8by8 Logo" />
+          <Image className={styles.logo} src={logo} alt="8by8 Logo" />
         </div>
       </section>
 
@@ -54,11 +41,9 @@ function ChallengerWelcome() {
           Get Started
         </button>
 
-        {!userContext.user && (
-          <p className={styles.signin_line}>
-            Already have an account? <Link href="/signin">Sign in</Link>
-          </p>
-        )}
+        <p className={styles.signin_line}>
+          Already have an account? <Link href="/signin">Sign in</Link>
+        </p>
 
         <Link className={styles.teal_link} href="/why8by8">
           See why others are doing it
@@ -72,7 +57,7 @@ function ChallengerWelcome() {
         <p className={styles.step_text}>
           Sign up with your name and email address to get started.
         </p>
-        <Image src={StepOne} alt="sign up" className={styles.image} />
+        <Image src={stepOne} alt="sign up" className={styles.image} />
 
         <h3 className={styles.step_header}>2. Invite your friends</h3>
         <p className={styles.step_text}>
@@ -80,7 +65,7 @@ function ChallengerWelcome() {
           challenge.
         </p>
         <Image
-          src={StepTwo}
+          src={stepTwo}
           alt="invite your friends"
           className={styles.image}
         />
@@ -92,7 +77,7 @@ function ChallengerWelcome() {
           themselves. You&apos;ll earn 1 badge per friend who takes action!
         </p>
         <Image
-          src={StepThree}
+          src={stepThree}
           alt="friends take action"
           className={styles.image}
         />
@@ -101,13 +86,12 @@ function ChallengerWelcome() {
           4. Win the challenge, get a reward!
         </h3>
         <p className={styles.step_text}>
-          {rewardsAvailable ?
-            'When all 8 of your friends took action in your challenge within 8 days, and you win! Then select and enjoy a reward from one of our amazing partners.'
-          : 'When you get 8 badges in 8 days, you win the challenge! Most importantly, you helped the community move closer to greater AAPI representation!'
-          }
+          When all 8 of your friends took action in your challenge within 8
+          days, and you win! Then select and enjoy a reward from one of our
+          amazing partners.
         </p>
         <Image
-          src={StepFour}
+          src={stepFour}
           alt="earn 8 badges in 8 days"
           className={styles.image}
         />
@@ -120,14 +104,12 @@ function ChallengerWelcome() {
           Get Started
         </button>
 
-        {!userContext.user && (
-          <p className={styles.signin_line}>
-            Already have an account?{' '}
-            <Link className={styles.signin_link_black} href="/signin">
-              Sign in
-            </Link>
-          </p>
-        )}
+        <p className={styles.signin_line}>
+          Already have an account?{' '}
+          <Link className={styles.signin_link_black} href="/signin">
+            Sign in
+          </Link>
+        </p>
       </section>
     </PageContainer>
   );

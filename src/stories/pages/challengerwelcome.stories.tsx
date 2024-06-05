@@ -4,6 +4,11 @@ import { GlobalStylesProvider } from '../global-styles-provider';
 
 const meta: Meta<typeof ChallengerWelcome> = {
   component: ChallengerWelcome,
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+  },
 };
 
 export default meta;

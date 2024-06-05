@@ -22,7 +22,8 @@ const config = {
   /*
     TODO : remove 'local-user-service.ts' once it is implemented. Then, tests
     can be added for 'user-context.tsx' and it can be removed from this array
-    as well.
+    as well. When more functionality is added to rewards-context, then it can
+    be removed from this list.
   */
   coveragePathIgnorePatterns: [
     'index.ts',
@@ -30,6 +31,7 @@ const config = {
     'layout.tsx',
     'local-user-service.ts',
     'user-context.tsx',
+    'rewards-context.tsx',
   ],
   //require 100% code coverage for the tests to pass
   coverageThreshold: {

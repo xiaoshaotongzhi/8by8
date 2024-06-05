@@ -158,7 +158,7 @@ exports[`ChallengerWelcome renders challenger-welcome page unchanged 1`] = `
         <p
           class="step_text"
         >
-          When you get 8 badges in 8 days, you win the challenge! Most importantly, you helped the community move closer to greater AAPI representation!
+          When all 8 of your friends took action in your challenge within 8 days, and you win! Then select and enjoy a reward from one of our amazing partners.
         </p>
         <img
           alt="earn 8 badges in 8 days"
