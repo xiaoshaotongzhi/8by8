@@ -1,6 +1,6 @@
 import { render, cleanup } from '@testing-library/react';
 import { Header } from '@/components/header';
-import { UserContext } from '@/contexts/user-context';
+import { UserContext, UserContextType } from '@/contexts/user-context';
 import { mockDialogMethods } from '@/testing-utils/mock-dialog-methods';
 
 describe('Header', () => {
@@ -9,7 +9,7 @@ describe('Header', () => {
 
   it('renders the header unchanged', () => {
     const { container } = render(
-      <UserContext.Provider value={{ user: null }}>
+      <UserContext.Provider value={{ user: null } as UserContextType}>
         <Header />
       </UserContext.Provider>,
     );

@@ -9,14 +9,14 @@ import {
   HeaderContext,
   HeaderContextType,
 } from '@/components/header/header-context';
-import { UserContext } from '@/contexts/user-context';
+import { UserContext, UserContextType } from '@/contexts/user-context';
 import styles from '@/components/header/hamburger-menu/styles.module.scss';
 
 describe('HamburgerMenu', () => {
   afterEach(cleanup);
   it('renders an outer div with a className of "hidden" when hamburgerMenuState is closed.', async () => {
     render(
-      <UserContext.Provider value={{ user: null }}>
+      <UserContext.Provider value={{ user: null } as UserContextType}>
         <MockHeaderCtx
           menuState={HamburgerMenuState.closed}
           closeHamburgerMenu={jest.fn()}
@@ -31,7 +31,7 @@ describe('HamburgerMenu', () => {
 
   it(`renders an outer div with a className of ${styles.hamburger_menu_outer_container} when hamburgerMenuState is open.`, () => {
     render(
-      <UserContext.Provider value={{ user: null }}>
+      <UserContext.Provider value={{ user: null } as UserContextType}>
         <MockHeaderCtx
           menuState={HamburgerMenuState.open}
           closeHamburgerMenu={jest.fn()}
@@ -48,7 +48,7 @@ describe('HamburgerMenu', () => {
 
   it(`renders a nav with a className of ${styles.hamburger_menu_closing} when hamburgerMenuState is closing.`, () => {
     render(
-      <UserContext.Provider value={{ user: null }}>
+      <UserContext.Provider value={{ user: null } as UserContextType}>
         <MockHeaderCtx
           menuState={HamburgerMenuState.closing}
           closeHamburgerMenu={jest.fn()}
@@ -63,7 +63,7 @@ describe('HamburgerMenu', () => {
 
   it(`renders a nav with a className of ${styles.hamburger_menu_open} when hamburgerMenuState is not closed or closing.`, () => {
     render(
-      <UserContext.Provider value={{ user: null }}>
+      <UserContext.Provider value={{ user: null } as UserContextType}>
         <MockHeaderCtx
           menuState={HamburgerMenuState.opening}
           closeHamburgerMenu={jest.fn()}
@@ -80,7 +80,7 @@ describe('HamburgerMenu', () => {
     const user = userEvent.setup();
     const closeHamburgerMenu = jest.fn();
     render(
-      <UserContext.Provider value={{ user: null }}>
+      <UserContext.Provider value={{ user: null } as UserContextType}>
         <MockHeaderCtx
           menuState={HamburgerMenuState.open}
           closeHamburgerMenu={closeHamburgerMenu}

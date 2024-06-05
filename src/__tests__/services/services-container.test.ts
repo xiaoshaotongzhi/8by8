@@ -2,7 +2,7 @@ import { AbstractRewardsService } from '@/services/classes/abstract/abstract-rew
 import { AbstractUserService } from '@/services/classes/abstract/abstract-user-service';
 import { servicesContainer } from '@/services/services-container';
 import { TYPES } from '@/services/types';
-
+import 'fake-indexeddb/auto';
 describe('servicesContainer', () => {
   it('Provides a subclass of the AbstractUserService service class.', () => {
     const userService = servicesContainer.get<AbstractUserService>(

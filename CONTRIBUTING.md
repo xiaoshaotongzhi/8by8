@@ -35,7 +35,7 @@ You will receive an invitation to join our Jira team once you have joined the or
 ## Workflow
 
 1.  Please fork this repo, and clone your fork.
-2.  Run `npm install` locally within the project directory. Then, run `npm run dev` to start the Next.js development server.
+2.  Follow the directions in the Getting Started section of the Readme.
 3.  You will be assigned a task to complete via Jira.
 4.  Once the task is complete and you have written unit tests which provide 100% code coverage, push the code to your fork.
 5.  Navigate to this repository and make a PR. For more information, please see [Making a PR](#making-a-pr).

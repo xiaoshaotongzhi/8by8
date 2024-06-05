@@ -7,7 +7,7 @@ describe('useContextSafely', () => {
   const TestContext = createNamedContext<string>('TestContext');
 
   function TestConsumer() {
-    const context = useContextSafely(TestContext, 'TestConsumer');
+    useContextSafely(TestContext, 'TestConsumer');
 
     return null;
   }
