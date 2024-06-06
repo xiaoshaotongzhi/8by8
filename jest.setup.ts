@@ -3,4 +3,3 @@
 import 'core-js/actual/structured-clone.js';
 // Import reflect-metadata so that Inversify decorators work as expected.
 import 'reflect-metadata';
-import '@inrupt/jest-jsdom-polyfills';
