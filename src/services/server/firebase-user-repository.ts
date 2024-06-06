@@ -1,13 +1,14 @@
 import 'server-only';
 import { injectable, inject } from 'inversify';
-import { AbstractUserRepository } from './abstract-user-repository';
+import { DateTime } from 'luxon';
+import {
+  AbstractUserRepository,
+  CreateUserWithEmailParams,
+} from './abstract-user-repository';
 import { SERVER_SERVICE_KEYS } from './server-service-keys';
 import type { AbstractFirebaseAdminService } from './abstract-firebase-admin-service';
 import type { AbstractInviteCodeRepository } from './abstract-invite-code-repository';
-import { UserType } from '@/model/enums/user-type';
-import { Avatar } from '@/model/types/avatar';
-import { User } from '@/model/types/user';
-import { DateTime } from 'luxon';
+import type { User } from '@/model/types/user';
 
 /**
  * An implementation of {@link AbstractUserRepository} that persists data in
@@ -24,12 +25,12 @@ export class FirebaseUserRepository extends AbstractUserRepository {
     super();
   }
 
-  public async createUserWithEmail(
-    email: string,
-    name: string,
-    avatar: Avatar,
-    type: UserType,
-  ): Promise<void> {
+  public async createUserWithEmail({
+    email,
+    name,
+    avatar,
+    type,
+  }: CreateUserWithEmailParams): Promise<void> {
     const { uid } = await this.firebaseAdmin.auth.createUser({ email });
     const inviteCode =
       await this.inviteCodeRepository.createInviteCodeWithUserId(uid);

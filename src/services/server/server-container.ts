@@ -1,4 +1,5 @@
 import 'server-only';
+import 'reflect-metadata';
 import { Container } from 'inversify';
 import { AbstractFirebaseAdminService } from './abstract-firebase-admin-service';
 import { SERVER_SERVICE_KEYS } from './server-service-keys';

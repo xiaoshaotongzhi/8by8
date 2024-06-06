@@ -54,7 +54,7 @@ export class FirebaseAdminService extends AbstractFirebaseAdminService {
     return z
       .string({
         message:
-          'FirebaseAdmin could not read NEXT_PUBLIC_FIREBASE_PROJECT_ID from .env.',
+          'FirebaseAdminService could not read NEXT_PUBLIC_FIREBASE_PROJECT_ID from .env.',
       })
       .parse(process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
   }
@@ -63,7 +63,7 @@ export class FirebaseAdminService extends AbstractFirebaseAdminService {
     return z
       .string({
         message:
-          'FirebaseAdmin could not read FIREBASE_CLIENT_EMAIL from .env.',
+          'FirebaseAdminService could not read FIREBASE_CLIENT_EMAIL from .env.',
       })
       .parse(process.env.FIREBASE_CLIENT_EMAIL);
   }
@@ -71,7 +71,8 @@ export class FirebaseAdminService extends AbstractFirebaseAdminService {
   private readAndFormatPrivateKey(): string {
     const privateKey = z
       .string({
-        message: 'FirebaseAdmin could not read FIREBASE_PRIVATE_KEY from .env.',
+        message:
+          'FirebaseAdminService could not read FIREBASE_PRIVATE_KEY from .env.',
       })
       .parse(process.env.FIREBASE_PRIVATE_KEY);
     return this.formatPrivateKey(privateKey);
