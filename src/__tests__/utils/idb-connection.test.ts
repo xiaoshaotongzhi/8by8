@@ -70,7 +70,6 @@ describe('IDBConnection', () => {
       // try to update a record without including the required key path
       await db.update({});
     } catch (e) {
-      console.log(e);
       error = e as Error;
     }
 

@@ -1,15 +1,17 @@
 import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { LocalUserContextProvider, UserContext } from '@/contexts/user-context';
+import { IDBUserContextProvider } from '@/contexts/user-context/idb-user-context-provider';
+import { UserContext } from '@/contexts/user-context';
 import { UserType } from '@/model/enums/user-type';
 import { IDBFactory } from 'fake-indexeddb';
 import { useContextSafely } from '@/hooks/functions/use-context-safely';
 import { IDBConnection } from '@/utils/idb-connection';
 import { useEffect, useRef, useState } from 'react';
 import { getErrorThrownByComponent } from '@/testing-utils/get-error-thrown-by-component';
+import { DateTime } from 'luxon';
 
-describe('LocalUserContextProvider', () => {
+describe('IDBUserContextProvider', () => {
   let db: IDBConnection;
   beforeEach(async () => {
     db = await IDBConnection.createConnection('8by8', 1, 'users', 'email');
@@ -47,9 +49,9 @@ describe('LocalUserContextProvider', () => {
     const user = userEvent.setup();
 
     render(
-      <LocalUserContextProvider>
+      <IDBUserContextProvider>
         <SignUpButton />
-      </LocalUserContextProvider>,
+      </IDBUserContextProvider>,
     );
 
     const signUpButton = screen.getByText('Sign Up');
@@ -71,11 +73,11 @@ describe('LocalUserContextProvider', () => {
         sharedChallenge: false,
       },
       badges: [],
-      challengeEndDate: expect.any(String),
+      challengeEndTimestamp: expect.any(Number),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: 'default-share-code',
+      inviteCode: 'default-invite-code',
     });
   });
 
@@ -94,11 +96,11 @@ describe('LocalUserContextProvider', () => {
         sharedChallenge: false,
       },
       badges: [],
-      challengeEndDate: '',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: 'default-share-code',
+      inviteCode: 'default-invite-code',
     });
 
     function SignUpWithExistingEmail() {
@@ -135,9 +137,9 @@ describe('LocalUserContextProvider', () => {
 
     const user = userEvent.setup();
     render(
-      <LocalUserContextProvider>
+      <IDBUserContextProvider>
         <SignUpWithExistingEmail />
-      </LocalUserContextProvider>,
+      </IDBUserContextProvider>,
     );
 
     const signUpButton = screen.getByText('Sign Up');
@@ -162,11 +164,11 @@ describe('LocalUserContextProvider', () => {
         sharedChallenge: false,
       },
       badges: [],
-      challengeEndDate: '',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: 'default-share-code',
+      inviteCode: 'default-invite-code',
     });
 
     function SignInButton() {
@@ -192,11 +194,11 @@ describe('LocalUserContextProvider', () => {
               sharedChallenge: false,
             },
             badges: [],
-            challengeEndDate: expect.any(String),
+            challengeEndTimestamp: expect.any(Number),
             completedChallenge: false,
             redeemedAward: false,
             contributedTo: [],
-            shareCode: 'default-share-code',
+            inviteCode: 'default-invite-code',
           });
         }
       }, [user]);
@@ -215,9 +217,9 @@ describe('LocalUserContextProvider', () => {
 
     const user = userEvent.setup();
     render(
-      <LocalUserContextProvider>
+      <IDBUserContextProvider>
         <SignInButton />
-      </LocalUserContextProvider>,
+      </IDBUserContextProvider>,
     );
 
     const signUpButton = screen.getByText('Sign In');
@@ -258,9 +260,9 @@ describe('LocalUserContextProvider', () => {
 
     const user = userEvent.setup();
     render(
-      <LocalUserContextProvider>
+      <IDBUserContextProvider>
         <SignInWithInvalidEmail />
-      </LocalUserContextProvider>,
+      </IDBUserContextProvider>,
     );
 
     const signInButton = screen.getByText('Sign In');
@@ -298,9 +300,9 @@ describe('LocalUserContextProvider', () => {
     const user = userEvent.setup();
 
     render(
-      <LocalUserContextProvider>
+      <IDBUserContextProvider>
         <SignUpSignOut />
-      </LocalUserContextProvider>,
+      </IDBUserContextProvider>,
     );
 
     const signUpButton = screen.getByText('Sign Up');
@@ -331,9 +333,9 @@ describe('LocalUserContextProvider', () => {
     }
 
     const error = getErrorThrownByComponent(
-      <LocalUserContextProvider>
+      <IDBUserContextProvider>
         <RestartChallenge />
-      </LocalUserContextProvider>,
+      </IDBUserContextProvider>,
     );
 
     expect(error).toBeTruthy();

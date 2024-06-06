@@ -9,7 +9,7 @@ const createJestConfig = nextJest({
 /** @type {import('jest').Config} */
 const config = {
   testEnvironment: 'jest-environment-jsdom',
-  // Provide an implementation of indexedDB for the LocalUserContextProvider
+  // Provide an implementation of indexedDB for the IDBUserContextProvider
   // to access.
   setupFiles: ['jest-canvas-mock', 'fake-indexeddb/auto'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
@@ -19,11 +19,10 @@ const config = {
   //directories that should not be counted against the test coverage thresholds
   modulePathIgnorePatterns: [
     '__snapshots__',
-    './src/model/enums',
-    './src/stories',
+    'stories',
     'constants',
     'fonts',
-    './src/services',
+    'model',
   ],
   coveragePathIgnorePatterns: [
     'index.ts',
@@ -39,6 +38,9 @@ const config = {
       lines: 100,
       statements: 100,
     },
+  },
+  moduleNameMapper: {
+    '^jose$': '<rootDir>/node_modules/jose/dist/node/cjs/index.js',
   },
 };
 

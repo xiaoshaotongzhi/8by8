@@ -1,4 +1,4 @@
-import { LocalUserContextProvider } from '@/contexts/user-context';
+import { IDBUserContextProvider } from '@/contexts/user-context/idb-user-context-provider';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { bebasNeue } from '@/fonts/bebas-neue';
@@ -19,11 +19,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${bebasNeue.variable} ${lato.variable}`}>
-        <LocalUserContextProvider>
+        <IDBUserContextProvider>
           <Header />
           {children}
           <Footer />
-        </LocalUserContextProvider>
+        </IDBUserContextProvider>
       </body>
     </html>
   );

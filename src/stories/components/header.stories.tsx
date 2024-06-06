@@ -8,6 +8,7 @@ import {
 import { GlobalStylesProvider } from '../global-styles-provider';
 import { UserType } from '../../model/enums/user-type';
 import type { User } from '../../model/types/user';
+import { DateTime } from 'luxon';
 
 const meta: Meta<typeof Header> = {
   component: Header,
@@ -47,11 +48,11 @@ export const ChallengerIsSignedIn: Story = {
         registerToVote: false,
       },
       badges: [],
-      challengeEndDate: '12-31-2025',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     });
 
     return (
@@ -85,7 +86,7 @@ export const PlayerIsSignedIn: Story = {
         registerToVote: false,
       },
       badges: [],
-      challengeEndDate: '',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       invitedBy: {
@@ -94,7 +95,7 @@ export const PlayerIsSignedIn: Story = {
         avatar: '0',
       },
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     });
 
     return (
@@ -128,7 +129,7 @@ export const HybridUserIsSignedIn: Story = {
         registerToVote: false,
       },
       badges: [],
-      challengeEndDate: '',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       invitedBy: {
@@ -137,7 +138,7 @@ export const HybridUserIsSignedIn: Story = {
         avatar: '0',
       },
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     });
 
     return (

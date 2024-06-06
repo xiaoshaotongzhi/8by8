@@ -3,6 +3,10 @@ import type { Avatar } from './avatar';
 import type { Badge } from './badge';
 import type { Challenger } from './challenger';
 
+import { DateTime } from 'luxon';
+
+const x = DateTime.now().toUnixInteger();
+
 export interface User {
   uid: string;
   email: string;
@@ -15,7 +19,10 @@ export interface User {
     sharedChallenge: boolean;
   };
   badges: Badge[];
-  challengeEndDate: string;
+  /**
+   * The end date of the user's challenge stored as a Unix integer.
+   */
+  challengeEndTimestamp: number;
   completedChallenge: boolean;
   redeemedAward: boolean;
   /**
@@ -35,5 +42,5 @@ export interface User {
    * updated.
    */
   invitedBy?: Challenger;
-  shareCode: string;
+  inviteCode: string;
 }

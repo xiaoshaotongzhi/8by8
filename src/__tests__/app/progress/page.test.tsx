@@ -9,6 +9,7 @@ import { DateTime } from 'luxon';
 import { Actions } from '@/model/enums/actions';
 import userEvent from '@testing-library/user-event';
 import { getErrorThrownByComponent } from '@/testing-utils/get-error-thrown-by-component';
+import { calculateDaysRemaining } from '@/utils/progress/calculate-days-remaining';
 
 describe('ProgressTest', () => {
   mockDialogMethods();
@@ -29,11 +30,11 @@ describe('ProgressTest', () => {
       { action: Actions.SharedChallenge },
       { playerName: 'Player', playerAvatar: '1' },
     ],
-    challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
+    challengeEndTimestamp: DateTime.now().toUnixInteger(),
     completedChallenge: true,
     redeemedAward: false,
     contributedTo: [],
-    shareCode: '',
+    inviteCode: '',
   };
 
   it('renders user with 2 badges, completedChallenge: true, redeemedAward:false, registerToVote: false', () => {
@@ -70,9 +71,9 @@ describe('ProgressTest', () => {
 
   it('renders user when daysLeft is 1.', () => {
     user.completedChallenge = false;
-    user.challengeEndDate = DateTime.now()
+    user.challengeEndTimestamp = DateTime.now()
       .plus({ days: 1 })
-      .toFormat('MM-dd-yyyy');
+      .toUnixInteger();
 
     render(
       <UserContext.Provider value={{ user } as UserContextType}>
@@ -85,7 +86,7 @@ describe('ProgressTest', () => {
 
   it('tests for Modal close.', async () => {
     user.redeemedAward = false;
-    user.challengeEndDate = DateTime.now().toFormat('MM-dd-yyyy');
+    user.challengeEndTimestamp = DateTime.now().toUnixInteger();
 
     render(
       <UserContext.Provider value={{ user } as UserContextType}>

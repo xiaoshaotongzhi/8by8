@@ -11,7 +11,7 @@ import type { UserType } from '@/model/enums/user-type';
  * An implementation of UserContext.Provider that uses IndexedDB for data
  * persistence. Intended for local development only.
  */
-export function LocalUserContextProvider({ children }: PropsWithChildren) {
+export function IDBUserContextProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState<User | null>(null);
   const dbName = '8by8';
   const storeName = 'users';
@@ -54,11 +54,11 @@ export function LocalUserContextProvider({ children }: PropsWithChildren) {
         sharedChallenge: false,
       },
       badges: [],
-      challengeEndDate: DateTime.now().plus({ days: 8 }).toFormat('MM-dd-yyyy'),
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: 'default-share-code',
+      inviteCode: 'default-invite-code',
     };
 
     await db.create(newUser);

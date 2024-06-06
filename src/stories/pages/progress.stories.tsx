@@ -32,11 +32,11 @@ export const DaysLeftChallenge: Story = {
         registerToVote: false,
       },
       badges: [],
-      challengeEndDate: '12-31-2025',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
     return (
       <GlobalStylesProvider>
@@ -66,11 +66,11 @@ export const NoDaysLeftChallenge: Story = {
         { action: Actions.SharedChallenge },
         { playerName: 'Player', playerAvatar: '0' },
       ],
-      challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
+      challengeEndTimestamp: DateTime.now().toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
     return (
       <GlobalStylesProvider>
@@ -105,11 +105,11 @@ export const CompletedChallenge: Story = {
         { playerName: 'Player5', playerAvatar: '0' },
         { playerName: 'Player6', playerAvatar: '1' },
       ],
-      challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
+      challengeEndTimestamp: DateTime.now().toUnixInteger(),
       completedChallenge: true,
       redeemedAward: true,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
     return (
       <GlobalStylesProvider>
