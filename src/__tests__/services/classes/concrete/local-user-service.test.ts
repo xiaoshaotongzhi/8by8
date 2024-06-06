@@ -2,12 +2,15 @@ import 'reflect-metadata';
 import { UserType } from '@/model/enums/user-type';
 import { LocalUserService } from '@/services/classes/concrete/local-user-service';
 import { Subscription } from 'rxjs';
+import { IDBFactory } from 'fake-indexeddb';
 describe('LocalUserService', () => {
   let userService: LocalUserService;
 
   beforeEach(() => {
     userService = new LocalUserService();
   });
+
+
 
   test('It successfully signs up a new user with valid data', async () => {
     await expect(userService.signUpWithEmail(
@@ -19,11 +22,14 @@ describe('LocalUserService', () => {
 
     // Additional assertions can be made to check if the user is correctly set, etc.
   });
-
+  //specific case, take information side effects 
   test('It successfully signs in an existing user with valid email', async () => {
+    // add a user in indexDB, it will work. Create a global Database?
+    // no influence in each case
     // Assuming a user with email 'user@example.com' exists in the database
     await expect(userService.signInWithEmail('user@example.com')).resolves.toBeUndefined();
-
+    //commmnet should be readable my comments is very bad and complex. 
+    //comment
     // Additional assertions can be made to check if the user is correctly set, etc.
   });
 
