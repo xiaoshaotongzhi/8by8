@@ -40,9 +40,6 @@ const config = {
       statements: 100,
     },
   },
-  moduleNameMapper: {
-    '^jose$': '<rootDir>/node_modules/jose/dist/node/cjs/index.js',
-  },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
