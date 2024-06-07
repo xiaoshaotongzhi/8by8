@@ -6,21 +6,32 @@ Currently, we are working on migrating the existing application to Next.js and T
 
 ## Requirements
 
-You must have Node.js version 18.17 or later installed to run the local development server.
+You must have Node.js version 18.17+ and the Firebase CLI installed to run the local development server.
 
 ## Getting Started
 
-To run the application locally, fork the repository and clone the fork to your machine. In the terminal, navigate into the project directory and run `npm install`. Before running the local development server, you will need to create a .env file with the following contents:
+To run the application locally, fork the repository and clone the fork to your machine. In the terminal, navigate into the project directory and run `npm install`. This will install the project's dependencies.
+
+You will also need the Firebase CLI installed in order to run Firebase emulators. This should be installed globally. To check if it is installed, open a terminal and run:
 
 ```
-NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+firebase --version
 ```
 
-Then, set this variable to one of the dummy Turnstile keys provided by Cloudflare, which can be found [here](https://developers.cloudflare.com/turnstile/troubleshooting/testing/). The .env file should now look something like this:
+If the output is a version number, the Firebase CLI is installed. If not, run the following command to install it:
 
 ```
-NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+npm install -g firebase-tools
 ```
+
+Before running the local development server, you will need to create a .env file. You can do this by running the following command:
+
+```
+npm run init-dev-env
+```
+
+This will create a .env file if it does not already exist, or update it to ensure all required env variables are present. None of the values in this .env file point
+to actual resources.
 
 You can now run the local development server with the command `npm run dev`.
 

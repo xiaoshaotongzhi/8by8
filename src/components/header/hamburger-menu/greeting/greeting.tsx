@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useContextSafely } from '../../../../hooks/functions/use-context-safely';
-import { UserContext } from '../../../../contexts/user-context';
+import { UserContext } from '../../../../contexts/user-context/user-context';
 import styles from './styles.module.scss';
 
 export function Greeting() {
