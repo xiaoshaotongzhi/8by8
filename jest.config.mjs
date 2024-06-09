@@ -9,7 +9,8 @@ const createJestConfig = nextJest({
 /** @type {import('jest').Config} */
 const config = {
   testEnvironment: 'jest-environment-jsdom',
-  //Provide an implementation of indexedDB for the LocalUserService class to access.
+  // Provide an implementation of indexedDB for the IDBUserContextProvider
+  // to access.
   setupFiles: ['jest-canvas-mock', 'fake-indexeddb/auto'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   collectCoverage: true,
@@ -18,10 +19,11 @@ const config = {
   //directories that should not be counted against the test coverage thresholds
   modulePathIgnorePatterns: [
     '__snapshots__',
-    './src/model/enums',
-    './src/stories',
+    'stories',
     'constants',
     'fonts',
+    'model',
+    'services',
   ],
   /*
     TODO : remove 'local-user-service.ts' once it is implemented. Then, tests
@@ -33,8 +35,7 @@ const config = {
     'index.ts',
     'index.tsx',
     'layout.tsx',
-    'local-user-service.ts',
-    'user-context.tsx',
+    'idb-connection.ts',
     'rewards-context.tsx',
   ],
   //require 100% code coverage for the tests to pass
