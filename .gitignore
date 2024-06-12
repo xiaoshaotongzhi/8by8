@@ -40,3 +40,7 @@ next-env.d.ts
 .vscode/
 .idea/
 *storybook.log
+
+# firebase
+firebase-debug.log
+firestore-debug.log

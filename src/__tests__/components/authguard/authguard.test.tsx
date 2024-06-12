@@ -9,6 +9,7 @@ import { UserContext, UserContextType } from '@/contexts/user-context';
 import { Builder } from 'builder-pattern';
 import { UserType } from '@/model/enums/user-type';
 import { useState } from 'react';
+import { DateTime } from 'luxon';
 
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
@@ -37,11 +38,11 @@ describe('Authguard', () => {
         sharedChallenge: false,
       },
       badges: [],
-      challengeEndDate: '',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
     const userContextValue = Builder<UserContextType>().user(user).build();
     render(
@@ -79,11 +80,11 @@ describe('Authguard', () => {
         sharedChallenge: false,
       },
       badges: [],
-      challengeEndDate: '',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
 
     const userContextValue = Builder<UserContextType>().user(user).build();
@@ -109,11 +110,11 @@ describe('Authguard', () => {
           sharedChallenge: false,
         },
         badges: [],
-        challengeEndDate: '',
+        challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
         completedChallenge: false,
         redeemedAward: false,
         contributedTo: [],
-        shareCode: '',
+        inviteCode: '',
       });
 
       const signout = () => setUser(null);

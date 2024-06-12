@@ -9,24 +9,21 @@ import type { User } from '@/model/types/user';
  * @returns - A number with a min of 0 and max of 8.
  *
  * @remarks
- * Expects a string in the format 'MM-dd-yyyy'. Others formats will return NaN
+ * Expects a Unix time integer. Others formats will return NaN.
  *
  * @example
  * // Get user from UserContext
  * const { user } = useContextSafely(UserContext, 'UserContext');
  *
- * // Call hook to get days remaining in challenge for that user
+ * // Call function to get days remaining in challenge for that user
  * const daysLeft = calculateDaysRemaining(user);
  */
 
 export function calculateDaysRemaining(user: User | null): number {
   let daysLeft = 0;
 
-  if (user && user.challengeEndDate) {
-    const challengeEndDate = DateTime.fromFormat(
-      user.challengeEndDate,
-      'MM-dd-yyyy',
-    );
+  if (user && user.challengeEndTimestamp) {
+    const challengeEndDate = DateTime.fromSeconds(user.challengeEndTimestamp);
     const currentDate = DateTime.now();
 
     const remainingDays = challengeEndDate.diff(currentDate, 'days').days;

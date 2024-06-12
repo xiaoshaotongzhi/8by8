@@ -4,6 +4,7 @@ import Progress from '@/app/progress/page';
 import { UserType } from '@/model/enums/user-type';
 import { UserContext, UserContextType } from '@/contexts/user-context';
 import type { User } from '@/model/types/user';
+import { DateTime } from 'luxon';
 
 describe('Progress', () => {
   mockDialogMethods();
@@ -22,11 +23,14 @@ describe('Progress', () => {
         registerToVote: false,
       },
       badges: [],
-      challengeEndDate: '12-31-2025',
+      challengeEndTimestamp: DateTime.fromFormat(
+        '12-31-2025',
+        'MM-dd-yyyy',
+      ).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
 
     const { container } = render(

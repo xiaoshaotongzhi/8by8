@@ -8,23 +8,27 @@ describe('calculateDaysRemaining', () => {
     expect(result).toBe(0);
   });
 
-  it('should return 0 when challengeEndDate is before current date', () => {
-    const user: User = { challengeEndDate: '01-01-2024' } as User;
+  it('should return 0 when challengeEndTimestamp is before current date', () => {
+    const user: User = {
+      challengeEndTimestamp: DateTime.now().minus({ days: 1 }).toUnixInteger(),
+    } as User;
 
     const result = calculateDaysRemaining(user);
     expect(result).toBe(0);
   });
 
-  it('should return a positive number when challengeEndDate after current date', () => {
-    const user: User = { challengeEndDate: '01-01-2025' } as User;
+  it('should return a positive number when challengeEndTimestamp after current date', () => {
+    const user: User = {
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
+    } as User;
 
     const result = calculateDaysRemaining(user);
     expect(result).toBeGreaterThan(0);
   });
 
-  it('should return a 2 when challengeEndDate is two days after current date', () => {
-    const date = DateTime.now().plus({ days: 2 }).toFormat('MM-dd-yyyy');
-    const user: User = { challengeEndDate: date } as User;
+  it('should return a 2 when challengeEndTimestamp is two days after current date', () => {
+    const date = DateTime.now().plus({ days: 2 }).toUnixInteger();
+    const user: User = { challengeEndTimestamp: date } as User;
 
     const result = calculateDaysRemaining(user);
     expect(result).toBe(2);
