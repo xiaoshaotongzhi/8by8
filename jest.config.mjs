@@ -23,7 +23,6 @@ const config = {
     'constants',
     'fonts',
     'model',
-    'services',
   ],
   coveragePathIgnorePatterns: [
     'index.ts',
