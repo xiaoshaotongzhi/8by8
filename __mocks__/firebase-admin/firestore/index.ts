@@ -1,1 +1,1 @@
-export { getFirestore } from './get-firestore';
+export { getFirestore, resetFirestore } from './get-firestore';

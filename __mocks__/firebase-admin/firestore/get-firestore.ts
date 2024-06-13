@@ -12,9 +12,11 @@ interface Collection {
   doc(id: string): DocRef;
 }
 
+let firestore: Record<string, Collection> = {};
+
 /**
- * A mock implementation of getFirestore() that stores data in memory. Each call
- * to this function returns an empty database.
+ * A mock implementation of getFirestore() that stores data in memory. The
+ * database can be reset by calling `resetFirestore()` between tests.
  *
  * @remarks
  * Only methods/properties relevant to service classes and their corresponding
@@ -23,8 +25,6 @@ interface Collection {
  * function.
  */
 export const getFirestore = jest.fn().mockImplementation(() => {
-  const firestore: Record<string, Collection> = {};
-
   return {
     collection: jest.fn().mockImplementation((collectionName: string) => {
       if (!(collectionName in firestore)) {
@@ -52,3 +52,12 @@ export const getFirestore = jest.fn().mockImplementation(() => {
     }),
   };
 });
+
+/**
+ * A function that can be imported into test suites in order to reset the
+ * firestore database between tests. Resetting the database between tests
+ * prevents temporal coupling between tests.
+ */
+export function resetFirestore() {
+  firestore = {};
+}

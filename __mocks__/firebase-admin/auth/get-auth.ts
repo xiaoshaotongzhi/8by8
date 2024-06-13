@@ -9,10 +9,12 @@ interface UserRecord {
   disabled?: boolean;
 }
 
+let users: UserRecord[] = [];
+
 /**
  * A mock implementation of getAuth() that returns an object with methods
- * for creating and retrieving users. Each call to this function returns an
- * empty database.
+ * for creating and retrieving users. The auth db can be reset by calling
+ * `resetAuth()` between each test.
  *
  * @remarks
  * Only methods/properties relevant to service classes and their corresponding
@@ -21,8 +23,6 @@ interface UserRecord {
  * function.
  */
 export const getAuth = jest.fn().mockImplementation(() => {
-  const users: UserRecord[] = [];
-
   return {
     createUser: jest
       .fn()
@@ -66,3 +66,12 @@ export const getAuth = jest.fn().mockImplementation(() => {
     }),
   };
 });
+
+/**
+ * A function that can be imported into test suites in order to reset the
+ * auth database between tests. Resetting the database between tests prevents
+ * temporal coupling between tests.
+ */
+export function resetAuth() {
+  users = [];
+}

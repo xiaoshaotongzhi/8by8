@@ -1,6 +1,7 @@
 import { FirebaseInviteCodeRepository } from '@/services/server/firebase-invite-code-repository';
 import { FirebaseAdminService } from '@/services/server/firebase-admin-service';
 import { createId, isCuid } from '@paralleldrive/cuid2';
+import { resetFirestore } from '@/../__mocks__/firebase-admin/firestore';
 
 describe('FirebaseInviteCodeRepository', () => {
   let firebaseInviteCodeRepository: FirebaseInviteCodeRepository;
@@ -11,6 +12,10 @@ describe('FirebaseInviteCodeRepository', () => {
     firebaseInviteCodeRepository = new FirebaseInviteCodeRepository(
       firebaseAdminService,
     );
+  });
+
+  afterEach(() => {
+    resetFirestore();
   });
 
   it('creates a new invite code.', async () => {

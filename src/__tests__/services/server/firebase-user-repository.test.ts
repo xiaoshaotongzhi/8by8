@@ -3,6 +3,8 @@ import { FirebaseInviteCodeRepository } from '@/services/server/firebase-invite-
 import { FirebaseAdminService } from '@/services/server/firebase-admin-service';
 import { UserType } from '@/model/enums/user-type';
 import { calculateDaysRemaining } from '@/utils/progress/calculate-days-remaining';
+import { resetAuth } from '@/../__mocks__/firebase-admin/auth';
+import { resetFirestore } from '@/../__mocks__/firebase-admin/firestore';
 import type { User } from '@/model/types/user';
 
 describe('FirebaseUserRepository', () => {
@@ -15,6 +17,11 @@ describe('FirebaseUserRepository', () => {
       firebaseAdminService,
       new FirebaseInviteCodeRepository(firebaseAdminService),
     );
+  });
+
+  afterEach(() => {
+    resetAuth();
+    resetFirestore();
   });
 
   it('creates a new user in the database.', async () => {

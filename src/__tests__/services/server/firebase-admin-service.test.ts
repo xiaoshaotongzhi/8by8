@@ -1,14 +1,21 @@
 import { UserType } from '@/model/enums/user-type';
-import { User } from '@/model/types/user';
 import { FirebaseAdminService } from '@/services/server/firebase-admin-service';
-import { CreateRequest } from 'firebase-admin/auth';
 import { DateTime } from 'luxon';
+import { resetAuth } from '@/../__mocks__/firebase-admin/auth';
+import { resetFirestore } from '@/../__mocks__/firebase-admin/firestore';
+import type { CreateRequest } from 'firebase-admin/auth';
+import type { User } from '@/model/types/user';
 
 describe('FirebaseAdminService', () => {
   let firebaseAdminService: FirebaseAdminService;
 
   beforeEach(() => {
     firebaseAdminService = new FirebaseAdminService();
+  });
+
+  afterEach(() => {
+    resetAuth();
+    resetFirestore();
   });
 
   it('can be instantiated.', () => {
