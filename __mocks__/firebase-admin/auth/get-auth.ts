@@ -9,51 +9,60 @@ interface UserRecord {
   disabled?: boolean;
 }
 
-const users: UserRecord[] = [];
-
 /**
  * A mock implementation of getAuth() that returns an object with methods
- * for creating and retrieving users.
+ * for creating and retrieving users. Each call to this function returns an
+ * empty database.
+ *
+ * @remarks
+ * Only methods/properties relevant to service classes and their corresponding
+ * test suites have been mocked. If it becomes necessary to access additional
+ * methods/properties, they should be added to the object returned by this
+ * function.
  */
-export const getAuth = jest.fn().mockImplementation(() => ({
-  createUser: jest
-    .fn()
-    .mockImplementation((properties: Omit<UserRecord, 'uid'>) => {
-      return new Promise((resolve, reject) => {
-        if (users.find(user => user.email === properties.email)) {
-          reject(
-            new Error(`User with email ${properties.email} already exists.`),
-          );
-        }
+export const getAuth = jest.fn().mockImplementation(() => {
+  const users: UserRecord[] = [];
 
-        users.push({
-          uid: `${users.length}`,
-          ...properties,
+  return {
+    createUser: jest
+      .fn()
+      .mockImplementation((properties: Omit<UserRecord, 'uid'>) => {
+        return new Promise((resolve, reject) => {
+          if (users.find(user => user.email === properties.email)) {
+            reject(
+              new Error(`User with email ${properties.email} already exists.`),
+            );
+          }
+
+          users.push({
+            uid: `${users.length}`,
+            ...properties,
+          });
+
+          resolve(users.at(-1));
         });
+      }),
+    getUser: jest.fn().mockImplementation((uid: string) => {
+      return new Promise<UserRecord>((resolve, reject) => {
+        const user = users.find(user => user.uid === uid);
 
-        resolve(users.at(-1));
+        if (!user) {
+          reject(new Error(`User with uid ${uid} does not exist.`));
+        } else {
+          resolve(user);
+        }
       });
     }),
-  getUser: jest.fn().mockImplementation((uid: string) => {
-    return new Promise<UserRecord>((resolve, reject) => {
-      const user = users.find(user => user.uid === uid);
+    getUserByEmail: jest.fn().mockImplementation((email: string) => {
+      return new Promise<UserRecord>((resolve, reject) => {
+        const user = users.find(user => user.email === email);
 
-      if (!user) {
-        reject(new Error(`User with uid ${uid} does not exist.`));
-      } else {
-        resolve(user);
-      }
-    });
-  }),
-  getUserByEmail: jest.fn().mockImplementation((email: string) => {
-    return new Promise<UserRecord>((resolve, reject) => {
-      const user = users.find(user => user.email === email);
-
-      if (!user) {
-        reject(new Error(`User with eamil ${email} does not exist.`));
-      } else {
-        resolve(user);
-      }
-    });
-  }),
-}));
+        if (!user) {
+          reject(new Error(`User with eamil ${email} does not exist.`));
+        } else {
+          resolve(user);
+        }
+      });
+    }),
+  };
+});

@@ -12,34 +12,43 @@ interface Collection {
   doc(id: string): DocRef;
 }
 
-const firestore: Record<string, Collection> = {};
-
 /**
- * A mock implementation of getFirestore() that stores data in memory.
+ * A mock implementation of getFirestore() that stores data in memory. Each call
+ * to this function returns an empty database.
+ *
+ * @remarks
+ * Only methods/properties relevant to service classes and their corresponding
+ * test suites have been mocked. If it becomes necessary to access additional
+ * methods/properties, they should be added to the object returned by this
+ * function.
  */
-export const getFirestore = jest.fn().mockImplementation(() => ({
-  collection: jest.fn().mockImplementation((collectionName: string) => {
-    if (!(collectionName in firestore)) {
-      const data: Record<string, object> = {};
-      const collection: Collection = {
-        doc: (id: string): DocRef => ({
-          set: (properties: object) => {
-            data[id] = properties;
-          },
-          get: () => {
-            return Promise.resolve({
-              exists: id in data,
-              data: () => {
-                return data[id];
-              },
-            });
-          },
-        }),
-      };
+export const getFirestore = jest.fn().mockImplementation(() => {
+  const firestore: Record<string, Collection> = {};
 
-      firestore[collectionName] = collection;
-    }
+  return {
+    collection: jest.fn().mockImplementation((collectionName: string) => {
+      if (!(collectionName in firestore)) {
+        const data: Record<string, object> = {};
+        const collection: Collection = {
+          doc: (id: string): DocRef => ({
+            set: (properties: object) => {
+              data[id] = properties;
+            },
+            get: () => {
+              return Promise.resolve({
+                exists: id in data,
+                data: () => {
+                  return data[id];
+                },
+              });
+            },
+          }),
+        };
 
-    return firestore[collectionName];
-  }),
-}));
+        firestore[collectionName] = collection;
+      }
+
+      return firestore[collectionName];
+    }),
+  };
+});

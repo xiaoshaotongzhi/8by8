@@ -15,12 +15,12 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
     "firebase": "^10.12.2",
     "firebase-admin": "^12.1.1",
     "fully-formed": "^1.0.1",
     "inversify": "^6.0.2",
     "luxon": "^3.4.4",
-    "nanoid": "^5.0.7",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
