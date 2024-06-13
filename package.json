@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --no-watch",
-    "test:ci": "jest --ci -u",
+    "test:ci": "npm run init-dev-env && jest --ci -u",
     "lint": "next lint",
     "format": "prettier --write \"**/*.+(js|ts|json)\"",
     "storybook": "storybook dev -p 6006",
