@@ -18,7 +18,7 @@ export const admin = {
   }),
   credential: {
     cert: jest.fn().mockImplementation(() => ({
-      getAccessToken: jest.fn,
+      getAccessToken: jest.fn(),
     })),
   },
 };
