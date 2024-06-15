@@ -8,5 +8,8 @@ module.exports = class CustomJestEnvironment extends JestEnvironmentJSDOM {
   constructor(...args) {
     const { global } = super(...args);
     global.TextEncoder = TextEncoder;
+    global.fetch = fetch;
+    global.Request = Request;
+    global.Response = Response;
   }
 };
