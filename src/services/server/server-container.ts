@@ -26,7 +26,9 @@ serverContainer
   .to(FirebaseUserRepository);
 
 serverContainer
-  .bind<AbstractValidateCloudflareTurnstile>(SERVER_SERVICE_KEYS.CloudflareTurnstile)
+  .bind<AbstractValidateCloudflareTurnstile>(
+    SERVER_SERVICE_KEYS.CloudflareTurnstile,
+  )
   .to(ValidateCloudflareTurnstile);
 
 export { serverContainer };
