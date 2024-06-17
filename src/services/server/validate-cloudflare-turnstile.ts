@@ -7,7 +7,9 @@ import {
 import { z } from 'zod';
 
 const envSchema = z.object({
-  NEXT_PRIVATE_TURNSTILE_SECRET_KEY: z.string().min(1, "Please provide a value"),
+  NEXT_PRIVATE_TURNSTILE_SECRET_KEY: z
+    .string()
+    .min(1, 'Please provide a value'),
 });
 
 /**
