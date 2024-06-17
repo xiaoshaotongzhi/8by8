@@ -4,6 +4,11 @@ import {
   AbstractValidateCloudflareTurnstile,
   VerifyTokenParams,
 } from './abstract-validate-cloudflare-turnstile';
+import { z } from 'zod';
+
+const envSchema = z.object({
+  NEXT_PRIVATE_TURNSTILE_SECRET_KEY: z.string().min(1, "Please provide a value"),
+});
 
 /**
  * An implementation of {@link AbstractValidateCloudflareTurnstile} that validates
@@ -18,12 +23,9 @@ export class ValidateCloudflareTurnstile extends AbstractValidateCloudflareTurns
   public async verifyToken({
     turnstileToken,
   }: VerifyTokenParams): Promise<boolean> {
+    const env = envSchema.parse(process.env);
     const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-    const secret_key = process.env.NEXT_PRIVATE_TURNSTILE_SECRET_KEY;
-
-    if (!turnstileToken || !secret_key) {
-      return false;
-    }
+    const secret_key = env.NEXT_PRIVATE_TURNSTILE_SECRET_KEY;
 
     const result = await fetch(url, {
       body: JSON.stringify({
