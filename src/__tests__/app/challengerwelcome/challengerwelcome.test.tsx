@@ -1,10 +1,7 @@
 import ChallengerWelcome from '@/app/challengerwelcome/page';
-import { RewardsContext, RewardsContextType } from '@/contexts/rewards-context';
-import { Reward } from '@/model/types/reward.type';
 import '@testing-library/jest-dom';
 import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Builder } from 'builder-pattern';
 import mockRouter from 'next-router-mock';
 
 jest.mock('next/navigation', () => require('next-router-mock'));

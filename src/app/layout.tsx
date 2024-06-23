@@ -1,6 +1,6 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
-import { RewardsContextProvider } from '@/contexts/rewards-context';
+import { RewardsContextProvider } from '@/contexts/rewards-context/rewards-context';
 import { IDBUserContextProvider } from '@/contexts/user-context/idb-user-context-provider';
 import { bebasNeue } from '@/fonts/bebas-neue';
 import { lato } from '@/fonts/lato';
