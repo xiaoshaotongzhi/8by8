@@ -1,0 +1,164 @@
+@use '../../styles/partials';
+
+.progress_page {
+  .section_1 {
+    background: partials.$color-black-8by8;
+    padding-top: 32px;
+    padding-left: 30px;
+    padding-bottom: 80px;
+
+    h1 {
+      color: partials.$color-white;
+    }
+
+    .days_blob_container {
+      height: 0px;
+      bottom: 110px;
+      float: right;
+      position: relative;
+
+      .days_label {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        left: 40%;
+        top: -8px;
+
+        p {
+          color: partials.$color-white;
+          font-size: 122px;
+          font-family: partials.$font-family-bebas-neue;
+          line-height: 110px;
+          margin: 0;
+          @extend .number_shadow;
+        }
+      }
+
+      .blob {
+        width: 180px;
+        height: 220px;
+        position: relative;
+        bottom: 50px;
+        right: 1px;
+      }
+
+      .days_left {
+        color: partials.$color-black-text;
+      }
+    }
+
+    @include partials.media-query-screen-size-xs {
+      .days_blob_container {
+        .days_label {
+          left: 40%;
+          top: -8px;
+
+          p {
+            font-size: 132px;
+            line-height: 120px;
+          }
+        }
+
+        .blob {
+          width: 200px;
+          height: 220px;
+        }
+      }
+    }
+  }
+
+  .curve {
+    height: 100%;
+    width: 100%;
+  }
+
+  .section_2 {
+    padding-top: 32px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    h3 {
+      text-align: center;
+      padding-bottom: 24px;
+
+      span {
+        font-size: 48px;
+      }
+    }
+
+    .gradient {
+      margin-bottom: 10px;
+      @extend .btn_lg, .btn_wide, .btn_gradient;
+    }
+  }
+
+  .register {
+    text-align: center;
+    margin-top: 24px;
+    @extend .b6;
+
+    a {
+      @extend .link;
+    }
+  }
+
+  .section_4 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+  }
+
+  .restart_modal {
+    @extend .b1;
+    margin-bottom: 40px;
+  }
+
+  .modal_btn {
+    button {
+      @extend .btn_gradient, .btn_sm;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+.coupon_container {
+  max-width: 80%;
+  background-color: partials.$color-cream;
+  position: relative;
+  margin: 24px auto 40px;
+  border-radius: 12px;
+  transform: translate(-15px, 0%);
+  padding: 20px;
+  top: 100px;
+
+  * {
+    margin: 0.5em auto !important;
+  }
+
+  p {
+    color: partials.$color-black-text;
+    text-align: center;
+
+    &:nth-of-type(2) {
+      color: partials.$color-graphite;
+      font-size: 9px;
+    }
+  }
+
+  img {
+    max-height: 94px;
+    width: auto;
+    max-width: 60%;
+    margin-left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  .img_bg {
+    background-color: white;
+    padding: 20px;
+    min-height: 94px;
+    width: fit-content;
+  }
+}

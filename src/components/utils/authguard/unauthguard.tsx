@@ -13,7 +13,7 @@ export function AuthGuard({ children }: UnAuthGuardProps) {
     const router = useRouter();
 
     if (user) {
-        router.push('');
+        router.push('/progress');
     }
 
     return <>{children}</>;

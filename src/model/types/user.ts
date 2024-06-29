@@ -1,7 +1,7 @@
 import { UserType } from '../enums/user-type';
-import type { Avatar } from './avatar.type';
+import type { Avatar } from './avatar';
 import type { Badge } from './badge';
-import type { Challenger } from './challenger.type';
+import type { Challenger } from './challenger';
 
 export interface User {
   uid: string;
@@ -15,7 +15,10 @@ export interface User {
     sharedChallenge: boolean;
   };
   badges: Badge[];
-  challengeEndDate: string;
+  /**
+   * The end date of the user's challenge stored in Unix seconds.
+   */
+  challengeEndTimestamp: number;
   completedChallenge: boolean;
   redeemedAward: boolean;
   /**
@@ -35,5 +38,5 @@ export interface User {
    * updated.
    */
   invitedBy?: Challenger;
-  shareCode: string;
+  inviteCode: string;
 }

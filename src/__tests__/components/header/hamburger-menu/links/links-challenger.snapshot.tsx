@@ -1,6 +1,6 @@
 import { render, cleanup } from '@testing-library/react';
 import { Builder } from 'builder-pattern';
-import { UserContext } from '@/contexts/user-context';
+import { UserContext, UserContextType } from '@/contexts/user-context';
 import { Links } from '@/components/header/hamburger-menu/links/links';
 import { UserType } from '@/model/enums/user-type';
 import {
@@ -16,7 +16,7 @@ describe('Links--Challenger', () => {
     const user = Builder<User>().type(UserType.Challenger).build();
     const headerCtxValue = Builder<HeaderContextType>().build();
     const { container } = render(
-      <UserContext.Provider value={{ user }}>
+      <UserContext.Provider value={{ user } as UserContextType}>
         <HeaderContext.Provider value={headerCtxValue}>
           <Links />
         </HeaderContext.Provider>

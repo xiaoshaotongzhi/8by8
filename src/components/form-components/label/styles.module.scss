@@ -1,0 +1,24 @@
+@use '../../../styles/partials' as *;
+
+.label {
+  @extend .b5;
+  display: block;
+  width: fit-content;
+  transform-origin: top left;
+  translate: 0 0px;
+  transition: all 250ms ease-in-out;
+  cursor: default;
+}
+
+.pristine_floating_label {
+  scale: 1.3;
+  translate: 0 30px;
+  cursor: text;
+}
+
+.pristine_floating_label:has(+ input:autofill),
+.pristine_floating_label:has(+ input:-webkit-autofill) {
+  scale: 1;
+  translate: 0 0;
+  transition: none;
+}
