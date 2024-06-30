@@ -8,7 +8,13 @@ interface UnAuthGuardProps {
     children?: ReactNode;
 }
 
-export function AuthGuard({ children }: UnAuthGuardProps) {
+/**
+ * Ensures the user does not access child components if they are not signed in.
+ * 
+ * @param props - {@link UnAuthGuardProps}
+ * @returns child components
+ */
+export function UnAuthGuard({ children }: UnAuthGuardProps) {
     const { user } = useContextSafely(UserContext, 'UnAuthGuard');
     const router = useRouter();
 

@@ -17,6 +17,7 @@ import { getFirstNonValidInputId } from './get-first-non-valid-input-id';
 import { focusOnElementById } from '@/utils/focus-on-element-by-id';
 import { scrollToElementById } from '@/utils/scroll-to-element-by-id';
 import { FormInvalidError } from '@/utils/form-invalid-error';
+import { UnAuthGuard } from '@/components/utils/authguard/unauthguard';
 import styles from './styles.module.scss';
 
 export default function SignUp() {
