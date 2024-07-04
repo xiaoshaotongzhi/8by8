@@ -118,6 +118,7 @@ export class LocalUserService extends AbstractUserService {
     this.user = null;
   };
 
+<<<<<<< HEAD
     subscribe(
         observerOrNext:
           | Partial<Observer<User | null>>
@@ -126,3 +127,20 @@ export class LocalUserService extends AbstractUserService {
         return this.userSubject.subscribe(observerOrNext);
       }
 }
+=======
+  subscribe(
+    observerOrNext:
+      | Partial<Observer<User | null>>
+      | ((user: User | null) => void),
+  ): Subscription {
+    return this.userSubject.subscribe(observerOrNext);
+  }
+
+  /*
+    TODO : Implement restartChallenge.
+  */
+  restartChallenge(): void {
+    throw new Error('Method not implemented.');
+  }
+}
+>>>>>>> ab03f253ac27f5d8a2c2f3c9b4129261a7a833e2

@@ -1,18 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { PageContainer } from '@/components/utils/page-container';
-import TealCurve from '../../../public/static/images/pages/home/teal-curve.svg';
-import TealBottom from '../../../public/static/images/pages/why-8by8/shapes/teal-curve-1.png';
-import VoteBubble from '../../../public/static/images/pages/why-8by8/graphics/speech-bubble.svg';
-import Arnab from '../../../public/static/images/pages/why-8by8/portraits/arnab.png';
-import Luis from '../../../public/static/images/pages/why-8by8/portraits/luis.png';
-import Yudy from '../../../public/static/images/pages/why-8by8/portraits/yudy.png';
-import Agustina from '../../../public/static/images/pages/why-8by8/portraits/agustina.png';
-import BlurDivider from '../../../public/static/images/pages/why-8by8/shapes/yellow-blur-2.png';
-import PieChart from '../../../public/static/images/pages/why-8by8/graphics/pie-chart.png';
-import BlurBlob from '../../../public/static/images/pages/why-8by8/shapes/yellow-blur-1.png';
-import TealTop from '../../../public/static/images/pages/why-8by8/shapes/teal-curve-2.png';
-import TealWave from '../../../public/static/images/pages/why-8by8/shapes/teal-curve-3.png';
+import tealCurve from '../../../public/static/images/pages/home/teal-curve.svg';
+import tealBottom from '../../../public/static/images/pages/why-8by8/shapes/teal-curve-1.png';
+import voteBubble from '../../../public/static/images/pages/why-8by8/graphics/speech-bubble.svg';
+import arnab from '../../../public/static/images/pages/why-8by8/portraits/arnab.png';
+import luis from '../../../public/static/images/pages/why-8by8/portraits/luis.png';
+import yudy from '../../../public/static/images/pages/why-8by8/portraits/yudy.png';
+import agustina from '../../../public/static/images/pages/why-8by8/portraits/agustina.png';
+import blurDivider from '../../../public/static/images/pages/why-8by8/shapes/yellow-blur-2.png';
+import pieChart from '../../../public/static/images/pages/why-8by8/graphics/pie-chart.png';
+import blurBlob from '../../../public/static/images/pages/why-8by8/shapes/yellow-blur-1.png';
+import tealTop from '../../../public/static/images/pages/why-8by8/shapes/teal-curve-2.png';
+import tealWave from '../../../public/static/images/pages/why-8by8/shapes/teal-curve-3.png';
 import styles from './styles.module.scss';
 
 export default function Why8by8() {
@@ -32,7 +32,7 @@ export default function Why8by8() {
             </q>
             <aside>
               <span>—Arnab, High School Student</span>
-              <Image src={Arnab} alt="Arnab"></Image>
+              <Image src={arnab} alt="Arnab"></Image>
             </aside>
           </div>
 
@@ -59,7 +59,7 @@ export default function Why8by8() {
         </div>
         <div className={styles.white_midsection}>
           <Image
-            src={TealCurve}
+            src={tealCurve}
             className={styles.teal_curve}
             alt="Teal Curve"
           ></Image>
@@ -73,22 +73,22 @@ export default function Why8by8() {
           </q>
           <aside>
             <span>—Agustina, College Student</span>
-            <Image src={Agustina} alt="Agustina"></Image>
+            <Image src={agustina} alt="Agustina"></Image>
           </aside>
           <Image
-            src={BlurDivider}
+            src={blurDivider}
             className={styles.blur_divider}
             alt="Blur Divider"
           ></Image>
           <h1> Types of Hate Crimes Against AAPI</h1>
           <div className={styles.chart}>
-            <Image src={PieChart} alt="Pie Chart" />
+            <Image src={pieChart} alt="Pie Chart" />
           </div>
           <h3>
             <b>11% of these are considered civil rights violations</b>, where
             the AAPI community members were barred from transportation, faced
             discrimination from housing or in the workplace, etc.
-            <Image src={BlurBlob} alt="Blur Blob" />
+            <Image src={blurBlob} alt="Blur Blob" />
           </h3>
           <div className={styles.last_stat}>
             <h3>
@@ -99,11 +99,15 @@ export default function Why8by8() {
               <br />
               Of All Reports
             </h3>
-            <Image src={BlurBlob} className={styles.blur_blob} alt="Blur Blob" />
+            <Image
+              src={blurBlob}
+              className={styles.blur_blob}
+              alt="Blur Blob"
+            />
           </div>
         </div>
         <div className={styles.final_teal_stats}>
-          <Image className={styles.top_curve} src={TealTop} alt="Teal Top" />
+          <Image className={styles.top_curve} src={tealTop} alt="Teal Top" />
           <h2>Asians Have Historically Low Election Turnout</h2>
           <h1 className={styles.bold_shadow}>Below 60%</h1>
           <div className={styles.stat}>
@@ -125,7 +129,7 @@ export default function Why8by8() {
             </h3>
           </div>
           <Image
-            src={TealWave}
+            src={tealWave}
             className={styles.left_spread}
             style={{ transform: 'translateY(00%)' }}
             alt="Teal Wave"
@@ -142,7 +146,7 @@ export default function Why8by8() {
           </q>
           <aside>
             <span>—Luis, College Student</span>
-            <Image className={styles.img_1} src={Luis} alt="Luis"></Image>
+            <Image className={styles.img_1} src={luis} alt="Luis"></Image>
           </aside>
           <div className={styles.quote_gap}></div>
           <q>
@@ -157,12 +161,12 @@ export default function Why8by8() {
             <span className={styles.quote_gap_2}>
               —Yudy, Partnership Lead at 8BY8
             </span>
-            <Image src={Yudy} alt="Yudy"></Image>
+            <Image src={yudy} alt="Yudy"></Image>
           </aside>
 
           <div className={styles.chefus_quote}>
             <Image
-              src={TealBottom}
+              src={tealBottom}
               className={styles.teal_bottom}
               alt="Teal Bottom"
             />
@@ -174,7 +178,7 @@ export default function Why8by8() {
               <span>—Xintao She, Chefus CEO</span>
               <div className={styles.logo}></div>
             </aside>
-            <Image src={TealTop} className={styles.teal_top} alt="Teal Top" />
+            <Image src={tealTop} className={styles.teal_top} alt="Teal Top" />
           </div>
         </div>
         <div className={styles.pseudo_footer}>
@@ -193,7 +197,11 @@ export default function Why8by8() {
             That&apos;s a very small portion of AAPI voters who already make up
             4% of the overall electorate! Your vote really counts!
           </h4>
-          <Image className={styles.vote_bubble} src={VoteBubble} alt="Vote Bubble" />
+          <Image
+            className={styles.vote_bubble}
+            src={voteBubble}
+            alt="Vote Bubble"
+          />
         </div>
         <div className={styles.links_box}>
           <Link href="https://www.instagram.com/8by8vote/" target={'blank'}>
