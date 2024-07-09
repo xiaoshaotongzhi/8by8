@@ -32,7 +32,7 @@ export default function Progress() {
       <article className={styles.progress_page}>
         {user?.completedChallenge ?
           <ConfettiAnimation time={8000} />
-          : null}
+        : null}
         <section className={styles.section_1}>
           <h1>
             {user?.completedChallenge ?
@@ -41,11 +41,11 @@ export default function Progress() {
                   You&apos;ve Won! <br /> The <br />
                   Challenge
                 </>
-                : <>
+              : <>
                   You&apos;ve Won! <br /> Here&apos;s <br /> Your <br /> Reward
                 </>
 
-              : <>
+            : <>
                 Your <br /> challenge <br /> badges
               </>
             }
@@ -93,7 +93,7 @@ export default function Progress() {
             You completed{' '}
             {user?.badges.filter(badge => badge !== null).length === 8 ?
               ' all '
-              : ' '}
+            : ' '}
             <span className={styles.underline}>
               {user?.badges.filter(badge => badge !== null).length}
             </span>{' '}
@@ -128,7 +128,7 @@ export default function Progress() {
             </div>
           )}
         </section>
-        <Badges badges={user!.badges} />
+        <Badges badges={user?.badges ?? []} />
 
         <section className={styles.section_4}>
           <ChallengeButton

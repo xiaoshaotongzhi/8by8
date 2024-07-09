@@ -1,0 +1,34 @@
+@use '../../../../styles/partials' as *;
+
+/*
+  Setting visibility to hidden or display to none has the effect of making the 
+  input un-tabbable. Therefore, to hide the radio button while preserving 
+  keyboard interactability, set width, height, margin, padding, and opacity to 0.
+*/
+.radio_button {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.radio_button:not(:checked) + .label {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+}
+
+.label {
+  display: inline-block;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.avatar {
+  @extend .no_drag;
+  @extend .no_select;
+  width: 100%;
+  height: auto;
+}

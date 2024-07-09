@@ -38,7 +38,7 @@ export const SingleActionBadge: Story = {
 
 export const SinglePlayerBadge: Story = {
   render: () => {
-    const playerBadge: Badge = { playerName: 'Player', playerAvatar: 1 };
+    const playerBadge: Badge = { playerName: 'Player', playerAvatar: '1' };
     return (
       <GlobalStylesProvider>
         <PlayerBadge badge={playerBadge} index={3} />
@@ -52,7 +52,7 @@ export const AllBadges: Story = {
     const badges: Badge[] = [
       { action: Actions.VoterRegistration },
       { action: Actions.SharedChallenge },
-      { playerName: 'Player', playerAvatar: 1 },
+      { playerName: 'Player', playerAvatar: '1' },
     ];
     return (
       <GlobalStylesProvider>

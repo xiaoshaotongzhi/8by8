@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
-import '../styles/main.scss';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
+import { RewardsContextProvider } from '@/contexts/rewards-context/rewards-context';
+import { IDBUserContextProvider } from '@/contexts/user-context/idb-user-context-provider';
 import { bebasNeue } from '@/fonts/bebas-neue';
 import { lato } from '@/fonts/lato';
-import { ServicesContextProvider } from '@/contexts/services-context';
-import { UserContextProvider } from '@/contexts/user-context';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import '../styles/main.scss';
 
 interface RootLayoutProps {
   children?: ReactNode;
@@ -20,13 +20,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${bebasNeue.variable} ${lato.variable}`}>
-        <ServicesContextProvider>
-          <UserContextProvider>
+        <IDBUserContextProvider>
+          <RewardsContextProvider>
             <Header />
             {children}
             <Footer />
-          </UserContextProvider>
-        </ServicesContextProvider>
+          </RewardsContextProvider>
+        </IDBUserContextProvider>
       </body>
     </html>
   );

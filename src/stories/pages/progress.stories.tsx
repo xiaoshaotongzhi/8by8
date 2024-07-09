@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import Progress from '@/app/progress/page';
-import { UserContext } from '../../contexts/user-context';
+import {
+  UserContext,
+  UserContextType,
+} from '../../contexts/user-context/user-context';
 import { UserType } from '../../model/enums/user-type';
 import type { User } from '../../model/types/user';
 import { GlobalStylesProvider } from '../global-styles-provider';
@@ -21,7 +24,7 @@ export const DaysLeftChallenge: Story = {
       uid: '123',
       email: 'challenger1@example.com',
       name: 'Challenger1',
-      avatar: 1,
+      avatar: '0',
       type: UserType.Challenger,
       completedActions: {
         sharedChallenge: false,
@@ -29,15 +32,15 @@ export const DaysLeftChallenge: Story = {
         registerToVote: false,
       },
       badges: [],
-      challengeEndDate: '12-31-2025',
+      challengeEndTimestamp: DateTime.now().plus({ days: 8 }).toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
     return (
       <GlobalStylesProvider>
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider value={{ user } as UserContextType}>
           <Progress />
         </UserContext.Provider>
       </GlobalStylesProvider>
@@ -51,7 +54,7 @@ export const NoDaysLeftChallenge: Story = {
       uid: '456',
       email: 'challenger2@example.com',
       name: 'Challenger2',
-      avatar: 2,
+      avatar: '1',
       type: UserType.Challenger,
       completedActions: {
         sharedChallenge: true,
@@ -61,17 +64,17 @@ export const NoDaysLeftChallenge: Story = {
       badges: [
         { action: Actions.VoterRegistration },
         { action: Actions.SharedChallenge },
-        { playerName: 'Player', playerAvatar: 1 },
+        { playerName: 'Player', playerAvatar: '0' },
       ],
-      challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
+      challengeEndTimestamp: DateTime.now().toUnixInteger(),
       completedChallenge: false,
       redeemedAward: false,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
     return (
       <GlobalStylesProvider>
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider value={{ user } as UserContextType}>
           <Progress />
         </UserContext.Provider>
       </GlobalStylesProvider>
@@ -85,7 +88,7 @@ export const CompletedChallenge: Story = {
       uid: '789',
       email: 'challenger3@example.com',
       name: 'Challenger3',
-      avatar: 3,
+      avatar: '2',
       type: UserType.Challenger,
       completedActions: {
         sharedChallenge: true,
@@ -95,22 +98,22 @@ export const CompletedChallenge: Story = {
       badges: [
         { action: Actions.VoterRegistration },
         { action: Actions.SharedChallenge },
-        { playerName: 'Player1', playerAvatar: 1 },
-        { playerName: 'Player2', playerAvatar: 2 },
-        { playerName: 'Player3', playerAvatar: 3 },
-        { playerName: 'Player4', playerAvatar: 4 },
-        { playerName: 'Player5', playerAvatar: 1 },
-        { playerName: 'Player6', playerAvatar: 2 },
+        { playerName: 'Player1', playerAvatar: '0' },
+        { playerName: 'Player2', playerAvatar: '1' },
+        { playerName: 'Player3', playerAvatar: '2' },
+        { playerName: 'Player4', playerAvatar: '3' },
+        { playerName: 'Player5', playerAvatar: '0' },
+        { playerName: 'Player6', playerAvatar: '1' },
       ],
-      challengeEndDate: DateTime.now().toFormat('MM-dd-yyyy'),
+      challengeEndTimestamp: DateTime.now().toUnixInteger(),
       completedChallenge: true,
       redeemedAward: true,
       contributedTo: [],
-      shareCode: '',
+      inviteCode: '',
     };
     return (
       <GlobalStylesProvider>
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider value={{ user } as UserContextType}>
           <Progress />
         </UserContext.Provider>
       </GlobalStylesProvider>
